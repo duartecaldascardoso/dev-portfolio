@@ -1,6 +1,6 @@
 # My Portfolio
 
-Web page that describes my path and interesting things about me. Make sure to visit it at: 
+Web page that describes my path and interesting things about me. Make sure to visit it at: https://duartecaldascardoso.github.io/dev-portfolio/
 
 ## Tech stack
 
