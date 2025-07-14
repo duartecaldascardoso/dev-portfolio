@@ -1,11 +1,18 @@
-# My Portfolio
+# Duarte's Portfolio
 
-Web page that describes my path and interesting things about me. Make sure to visit it at: https://duartecaldascardoso.github.io/dev-portfolio/
+Welcome to my personal developer portfolio! This web page showcases my journey, projects, and the technologies I enjoy working with. It’s built with performance, clarity, and clean design in mind.
 
-## Tech stack
 
-    Vite – fast dev environment & build tool
-    React – front-end framework
-    TypeScript – static typing for better DX and safety
-    Chakra UI – component library for accessible, responsive UI
-    React Icons – icon set (e.g. react-icons/fa)
+### 🚀 Tech Stack
+
+I used my preferred tech stack, which is fast, efficient and familiar:
+
+    Vite – Blazing-fast development environment and build tool
+
+    React – Powerful and flexible front-end library
+
+    TypeScript – Static typing for improved development experience and reliability
+
+    Chakra UI – Accessible and responsive component library for sleek interfaces - I recommend this a lot (as I do with other UI component libraries such as ShadCN)
+
+    React Icons – Versatile icon library (react-icons/fa)
