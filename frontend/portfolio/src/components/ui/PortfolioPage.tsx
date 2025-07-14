@@ -277,7 +277,7 @@ export default function PortfolioPage() {
               Get in Touch
             </Heading>
             <Text fontSize="l" color={subtextColor}>
-              I am open contributing to open source projects, collaborating on exciting ideas and speaking about what I do.
+              I am open to contributing to open source projects, collaborating on exciting ideas and speaking about what I do.
             </Text>
 
             <HStack gap={6} justify="center">
