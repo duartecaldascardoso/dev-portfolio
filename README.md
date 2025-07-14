@@ -13,6 +13,6 @@ I used my preferred tech stack, which is fast, efficient and familiar:
 
     TypeScript – Static typing for improved development experience and reliability
 
-    Chakra UI – Accessible and responsive component library for sleek interfaces - I recommend this a lot (as I do with other UI component libraries such as ShadCN)
+    Chakra UI – Accessible and responsive component library for sleek interfaces 
 
     React Icons – Versatile icon library (react-icons/fa)
