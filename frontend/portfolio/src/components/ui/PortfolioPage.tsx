@@ -37,9 +37,9 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ icon, title, description, href, websiteUrl }: FeatureCardProps) => {
   const bg = useColorModeValue('white', '#0a0a0a')
-  const border = useColorModeValue('orange.500', 'orange.400')
-  const headingColor = useColorModeValue('orange.600', 'orange.300')
-  const textColor = useColorModeValue('gray.700', 'white')
+  const border = useColorModeValue('orange.300', 'orange.400')
+  const headingColor = useColorModeValue('orange.400', 'orange.300')
+  const textColor = useColorModeValue('black', 'white')
   const githubIconHover = useColorModeValue('orange.500', 'orange.400')
 
   return (
@@ -72,7 +72,7 @@ const FeatureCard = ({ icon, title, description, href, websiteUrl }: FeatureCard
             href={websiteUrl}
             color="orange.300"
             fontWeight="bold"
-            _hover={{ textDecoration: 'underline', color: 'orange.400' }}
+            textDecoration="underline"
           >
             <Heading size="md" textAlign="center" color={headingColor}>
               {title}
@@ -94,7 +94,7 @@ const FeatureCard = ({ icon, title, description, href, websiteUrl }: FeatureCard
 
 export default function PortfolioPage() {
   const bg = useColorModeValue('white', 'black')
-  const headingColor = useColorModeValue('orange.600', 'orange.300')
+  const headingColor = useColorModeValue('orange.400', 'orange.300')
   const subtextColor = useColorModeValue('gray.600', 'gray.400')
   const badgeBg = useColorModeValue('orange.400', 'orange.500')
   const badgeTextColor = useColorModeValue('white', 'black')
@@ -111,8 +111,10 @@ export default function PortfolioPage() {
           <Container maxW="6xl" py={{ base: 20, md: 36 }}>
             <Stack textAlign="center" gap={{ base: 8, md: 14 }}>
               <VStack gap={4}>
+              <Box position="relative" w="360px" h="360px">
+
                 <Image
-                  src="/config/profile_pic-modified.jpg"
+                  src="/config/profile.jpg"
                   boxSize="200px"
                   borderRadius="full"
                   fit="cover"
@@ -120,7 +122,57 @@ export default function PortfolioPage() {
                   border="2px solid"
                   borderColor="orange.500"
                   objectPosition="0px -100px"
+                  position="absolute"
+                  top="50%"
+                  left="50%"
+                  transform="translate(-50%, -50%)"
+                  zIndex="2"
                 />
+
+                <Image
+                  src="/config/bass.jpg"
+                  boxSize="160px"
+                  borderRadius="full"
+                  fit="cover"
+                  border="2px solid"
+                  borderColor="orange.500"
+                  transform="rotate(-10deg)"
+                  position="absolute"
+                  top="-40px"
+                  left="20%"
+                  transformOrigin="center"
+                  zIndex="1"
+                  boxShadow="lg"
+                />
+
+                <Image
+                  src="/config/chess.jpg"
+                  boxSize="160px"
+                  borderRadius="full"
+                  fit="cover"
+                  border="2px solid"
+                  borderColor="orange.500"
+                  position="absolute"
+                  bottom="40px"
+                  left="-5"
+                  zIndex="1"
+                  boxShadow="lg"
+                />
+
+                <Image
+                  src="/config/travel.jpg"
+                  boxSize="160px"
+                  borderRadius="full"
+                  fit="cover"
+                  border="2px solid"
+                  borderColor="orange.500"
+                  position="absolute"
+                  bottom="20px"
+                  right="0"
+                  zIndex="1"
+                  boxShadow="lg"
+                />
+              </Box>
                 <Heading
                   as="h1"
                   fontWeight="bold"
@@ -128,25 +180,23 @@ export default function PortfolioPage() {
                   lineHeight="110%"
                   color={headingColor}
                 >
-                  Hello world, I'm Duarte
+                  Hi, I'm Duarte.
                 </Heading>
-                <Badge
-                  px={4}
-                  py={2}
-                  borderRadius="full"
-                  bg={badgeBg}
-                  color={badgeTextColor}
-                  border="1px solid"
-                  borderColor="orange.400"
+                <Heading
+                  as="h3"
+                  fontWeight="bold"
+                  fontSize={{ base: '3l', sm: '5l', md: '6l' }}
+                  lineHeight="110%"
+                  color={subtextColor}
                 >
-                  Software Engineer • AI developer • Product-minded
-                </Badge>
+                  Musician, Chess player, Traveler and Software Engineer.
+                </Heading>
+                <Text fontSize="l" maxW="2xl" mx="auto" color={subtextColor}>
+                  I view myself as a creative person, focused on building intelligent, user-centric systems.
+                  I truly enjoy technology and am passionate about building and learning in the field.
+                </Text>
               </VStack>
 
-              <Text fontSize="l" maxW="2xl" mx="auto" color={subtextColor}>
-                I'm a software engineer focused on building intelligent, user-centric systems.
-                I truly enjoy technology and am passionate about building and learning in the field.
-              </Text>
 
               <Stack direction={{ base: 'column', sm: 'row' }} gap={4} justify="center" align="center">
                 <Link href="https://github.com/duartecaldascardoso">
@@ -166,7 +216,7 @@ export default function PortfolioPage() {
           </Container>
         </Flex>
       </Box>
-
+    
       <Container maxW="6xl" py={16}>
         <VStack gap={16}>
           <VStack gap={4} textAlign="center">
@@ -176,6 +226,17 @@ export default function PortfolioPage() {
             <Text fontSize="l" color={subtextColor} maxW="2xl">
               As any rusty developer, I work on projects for my own fun. Here are some of the ones I did:
             </Text>
+                <Badge
+                  px={4}
+                  py={2}
+                  borderRadius="full"
+                  bg={badgeBg}
+                  color={badgeTextColor}
+                  border="1px solid"
+                  borderColor="orange.400"
+                >
+                  CLI tools • AI agents • React • Rust • Java • Python
+                </Badge>
           </VStack>
 
           <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} gap={8}>
