@@ -26,6 +26,7 @@ import {
   FaBolt,
 } from 'react-icons/fa'
 import { useColorModeValue } from '../color-mode';
+import TimelinePage from './TimelinePage';
 
 interface FeatureCardProps {
   icon: React.ComponentType
@@ -213,6 +214,8 @@ export default function PortfolioPage() {
           </Container>
         </Flex>
       </Box>
+
+      <TimelinePage />
     
       <Container maxW="6xl" py={16}>
         <VStack gap={16}>
