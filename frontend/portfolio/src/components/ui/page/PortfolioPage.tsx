@@ -25,7 +25,7 @@ import {
   FaRobot,
   FaBolt,
 } from 'react-icons/fa'
-import { useColorModeValue } from '../color-mode';
+import { ColorModeButton, useColorModeValue } from '../color-mode';
 import TimelinePage from './TimelinePage';
 
 interface FeatureCardProps {
@@ -103,6 +103,10 @@ export default function PortfolioPage() {
 
   return (
     <Flex direction="column" minH="100vh" bg={bg}>
+
+      <Box position="fixed" top={6} right={6} zIndex="1000" p={2}>
+        <ColorModeButton />
+      </Box>
 
       <Box minH="100vh" position="relative" overflow="hidden">
         <Flex minH="100vh" align="center" justify="center" px={4} zIndex="1">
