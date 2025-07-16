@@ -25,7 +25,7 @@ import {
   FaRobot,
   FaBolt,
 } from 'react-icons/fa'
-import { useColorModeValue, ColorModeButton } from './color-mode';
+import { useColorModeValue } from '../color-mode';
 
 interface FeatureCardProps {
   icon: React.ComponentType
@@ -102,9 +102,6 @@ export default function PortfolioPage() {
 
   return (
     <Flex direction="column" minH="100vh" bg={bg}>
-      <Box position="fixed" top={6} right={6} zIndex="1000" p={2}>
-        <ColorModeButton />
-      </Box>
 
       <Box minH="100vh" position="relative" overflow="hidden">
         <Flex minH="100vh" align="center" justify="center" px={4} zIndex="1">
@@ -114,7 +111,7 @@ export default function PortfolioPage() {
               <Box position="relative" w="360px" h="360px">
 
                 <Image
-                  src="/config/profile.jpg"
+                  src={`${import.meta.env.BASE_URL}config/profile.jpg`}
                   boxSize="200px"
                   borderRadius="full"
                   fit="cover"
@@ -130,7 +127,7 @@ export default function PortfolioPage() {
                 />
 
                 <Image
-                  src="/config/bass.jpg"
+                  src={`${import.meta.env.BASE_URL}config/bass.jpg`}
                   boxSize="160px"
                   borderRadius="full"
                   fit="cover"
@@ -146,7 +143,7 @@ export default function PortfolioPage() {
                 />
 
                 <Image
-                  src="/config/chess.jpg"
+                  src={`${import.meta.env.BASE_URL}config/chess.jpg`}
                   boxSize="160px"
                   borderRadius="full"
                   fit="cover"
@@ -160,7 +157,7 @@ export default function PortfolioPage() {
                 />
 
                 <Image
-                  src="/config/travel.jpg"
+                  src={`${import.meta.env.BASE_URL}config/travel.jpg`}
                   boxSize="160px"
                   borderRadius="full"
                   fit="cover"
@@ -270,8 +267,8 @@ export default function PortfolioPage() {
         </VStack>
       </Container>
 
-      <Box borderTopWidth="1px" borderTopColor={footerBorder} py={20}>
-        <Container maxW="6xl">
+      <Box borderTopWidth="1px" borderTopColor={footerBorder} py={10}>
+        <Container maxW="6l">
           <VStack gap={6}>
             <Heading size="xl" color={headingColor}>
               Get in Touch
