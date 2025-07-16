@@ -8,6 +8,12 @@ import Navbar from './components/ui/page/NavBar.tsx';
 import PortfolioPage from './components/ui/page/PortfolioPage.tsx';
 import TimelinePage from './components/ui/page/TimelinePage.tsx';
 
+const redirectPath = sessionStorage.redirect
+if (redirectPath) {
+  sessionStorage.removeItem('redirect')
+  window.history.replaceState(null, '', redirectPath)
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ChakraProvider value={system}>
