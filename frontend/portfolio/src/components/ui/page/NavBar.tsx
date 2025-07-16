@@ -11,8 +11,8 @@ const navItems = [
 
 export default function Navbar() {
   const bg = useColorModeValue('white', 'black')
-  const borderColor = useColorModeValue('orange.300', 'orange.500')
-  const textColor = useColorModeValue('orange.400', 'orange.300')
+  const borderColor = useColorModeValue('orange.300', 'orange.300')
+  const textColor = useColorModeValue('orange.400', 'orange.400')
 
   return (
     <Box
