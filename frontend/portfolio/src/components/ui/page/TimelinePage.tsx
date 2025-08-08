@@ -29,7 +29,6 @@ export default function TimelinePage() {
                     width="100%"
                 >
                     <Timeline.Root size="lg" variant="outline">
-                        {/** Each Timeline.Item stays the same, only Content blocks are adjusted for responsiveness */}
                         <Timeline.Item>
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
@@ -199,10 +198,10 @@ export default function TimelinePage() {
                                 textAlign={{ base: 'left', md: 'inherit' }}
                             >
                                 <Text fontSize="lg" fontWeight="bold" color={titleColor}>
-                                    AI Application Engineer at MSG
+                                    AI Engineer at MSG
                                 </Text>
                                 <Text fontSize="sm" color={titleColor}>Built a fully automated RAG pipeline for an AI assistant</Text>
-                                <Text fontSize="sm" color={titleColor}>Building Agentic AI applications for the company</Text>
+                                <Text fontSize="sm" color={titleColor}>Building Agentic AI solutions for the company</Text>
                                 <Text fontSize="sm" color={dateColor}>August 2024 (Ongoing)</Text>
                             </Timeline.Content>
                         </Timeline.Item>

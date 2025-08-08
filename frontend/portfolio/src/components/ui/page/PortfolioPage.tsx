@@ -191,7 +191,7 @@ export default function PortfolioPage() {
                   lineHeight="110%"
                   color={subtextColor}
                 >
-                  Musician, Chess player, Traveler and Software Engineer.
+                  Musician, Chess player, Traveler and AI Engineer.
                 </Heading>
                 <Text fontSize="l" maxW="2xl" mx="auto" color={subtextColor}>
                   I view myself as a creative person, focused on building intelligent, user-centric systems.
