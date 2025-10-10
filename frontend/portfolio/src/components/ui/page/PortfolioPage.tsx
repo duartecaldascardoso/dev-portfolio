@@ -259,16 +259,15 @@ export default function PortfolioPage() {
             />
             <FeatureCard
               icon={FaBolt}
-              title="Damn"
-              description="A blazing-fast CLI tool for correcting command mistakes based on previous entries. Built with Rust."
-              href="https://github.com/duartecaldascardoso/damn"
+              title="Article-Explainer"
+              description="Agentic AI team to explain articles in an easy to understand way."
+              href="https://github.com/duartecaldascardoso/article-explainer"
             />
             <FeatureCard
               icon={FaRobot}
-              title="FolderSort"
-              description="A CLI tool to organize folders and desktop environments using AI agents."
-              href="https://github.com/duartecaldascardoso/folderSort"
-              websiteUrl="https://duartecaldascardoso.github.io/folderSort/"
+              title="HabitLens"
+              description="Your AI companion for building and tracking habits, being built in private."
+              href="https://github.com/duartecaldascardoso/HabitLens"
             />
           </SimpleGrid>
         </VStack>
