@@ -1,4 +1,4 @@
-import {createSystem, defaultConfig} from "@chakra-ui/react";
+import { createSystem, defaultConfig } from "@chakra-ui/react";
 import { textStyles } from "./themeStyles/textStyles";
 import { semanticTokens } from "./themeStyles/semanticToken";
 
@@ -7,22 +7,21 @@ export const system = createSystem(defaultConfig, {
         textStyles,
         tokens: {
             fonts: {
-                heading: {value: "Poppins, sans-serif"},
-                body: {value: "DMSans, sans-serif"},
+                heading: { value: "'Space Grotesk', sans-serif" },
+                body: { value: "'Inter', sans-serif" },
             },
             colors: {
-                blue: {
-                    10: {value: "#f8fcfe"},
-                    50: {value: "#E9F5FE"},
-                    100: {value: "#c9e7fe"},
-                    200: {value: "#A3D1FE"},
-                    300: {value: "#7BB9FE"},
-                    400: {value: "#2a00ff"},
-                    500: {value: "#0800F9"},
-                    600: {value: "#0700D9"},
-                    700: {value: "#0600B9"},
-                    800: {value: "#05009A"},
-                    900: {value: "#04007A"},
+                brand: {
+                    50: { value: "#eef2ff" },
+                    100: { value: "#e0e7ff" },
+                    200: { value: "#c7d2fe" },
+                    300: { value: "#a5b4fc" },
+                    400: { value: "#818cf8" },
+                    500: { value: "#6366f1" },
+                    600: { value: "#4f46e5" },
+                    700: { value: "#4338ca" },
+                    800: { value: "#3730a3" },
+                    900: { value: "#312e81" },
                 },
             },
         },

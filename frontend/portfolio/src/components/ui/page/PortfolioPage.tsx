@@ -4,88 +4,149 @@ import {
   Heading,
   Container,
   Text,
-  Button,
   Stack,
   Flex,
   Box,
-  SimpleGrid,
   Icon,
   VStack,
   HStack,
   Badge,
   Link,
   Image,
+  SimpleGrid,
 } from '@chakra-ui/react'
 import {
   FaGithub,
   FaLinkedin,
-  FaCode,
   FaLaptopCode,
   FaEnvelope,
-  FaRobot,
   FaBolt,
+  FaBalanceScale,
+  FaBrain,
 } from 'react-icons/fa'
 import { ColorModeButton, useColorModeValue } from '../color-mode';
 import TimelinePage from './TimelinePage';
 
+interface ThreeDButtonProps extends React.ComponentProps<typeof Box> {
+  children: React.ReactNode;
+  href?: string;
+  onClick?: () => void;
+}
+
+const ThreeDButton = ({ children, href, onClick, ...props }: ThreeDButtonProps) => {
+  const bg = useColorModeValue('white', 'gray.900');
+  const color = useColorModeValue('black', 'white');
+  const borderColor = useColorModeValue('black', 'white');
+
+  const Component = (
+    <Box
+      as="button"
+      bg={bg}
+      color={color}
+      border="2px solid"
+      borderColor={borderColor}
+      borderRadius="full"
+      px={8}
+      h={14}
+      fontWeight="bold"
+      fontSize="lg"
+      position="relative"
+      transition="all 0.1s"
+      top="0px"
+      left="0px"
+      boxShadow={`4px 4px 0px 0px ${borderColor}`}
+      _active={{
+        top: "2px",
+        left: "2px",
+        boxShadow: `2px 2px 0px 0px ${borderColor}`,
+      }}
+      _hover={{
+        top: "-1px",
+        left: "-1px",
+        boxShadow: `6px 6px 0px 0px ${borderColor}`,
+      }}
+      display="flex"
+      alignItems="center"
+      gap={2}
+      onClick={onClick}
+      {...props}
+    >
+      {children}
+    </Box>
+  );
+
+  if (href) {
+    return (
+      <Link href={href} textDecoration="none" _hover={{ textDecoration: 'none' }}>
+        {Component}
+      </Link>
+    );
+  }
+  return Component;
+};
+
+
 interface FeatureCardProps {
   icon: React.ComponentType
   title: string
-  description: string
+  description: string | React.ReactNode
   href: string
   websiteUrl?: string
 }
 
 const FeatureCard = ({ icon, title, description, href, websiteUrl }: FeatureCardProps) => {
-  const bg = useColorModeValue('white', '#0a0a0a')
-  const border = useColorModeValue('orange.300', 'orange.400')
-  const headingColor = useColorModeValue('orange.400', 'orange.300')
-  const textColor = useColorModeValue('black', 'white')
-  const githubIconHover = useColorModeValue('orange.500', 'orange.400')
+  const bg = useColorModeValue('white', 'whiteAlpha.50')
+  const border = useColorModeValue('gray.100', 'whiteAlpha.100')
+  const headingColor = useColorModeValue('gray.900', 'white')
+  const textColor = useColorModeValue('gray.600', 'gray.400')
+  const iconColor = useColorModeValue('brand.600', 'brand.400')
 
   return (
     <Box
-      p={6}
-      shadow="lg"
+      p={8}
+      shadow="none"
       borderWidth="1px"
-      borderRadius="xl"
+      borderRadius="2xl"
       position="relative"
       bg={bg}
       borderColor={border}
       transition="all 0.3s"
+      _hover={{
+        transform: 'translateY(-4px)',
+        shadow: 'xl',
+        borderColor: 'brand.200'
+      }}
     >
       <Link
         href={href}
         position="absolute"
-        top={4}
-        right={4}
+        top={6}
+        right={6}
         color="gray.400"
-        _hover={{ color: githubIconHover }}
+        _hover={{ color: iconColor }}
       >
         <Icon as={FaGithub} boxSize={5} />
       </Link>
 
-      <VStack gap={4}>
-        <Icon as={icon} w={12} h={12} color="orange.400" />
+      <VStack gap={5} align="start">
+        <Icon as={icon} w={10} h={10} color={iconColor} />
 
         {websiteUrl ? (
           <Link
             href={websiteUrl}
-            color="orange.300"
-            fontWeight="bold"
-            textDecoration="underline"
+            _hover={{ textDecoration: 'none' }}
           >
-            <Heading size="md" textAlign="center" color={headingColor}>
+            <Heading size="md" color={headingColor} _hover={{ color: iconColor }} transition="color 0.2s">
               {title}
             </Heading>
           </Link>
         ) : (
-          <Heading size="md" textAlign="center" color={headingColor}>
+          <Heading size="md" color={headingColor}>
             {title}
           </Heading>
         )}
 
-        <Text color={textColor} textAlign="center">
+        <Text color={textColor} fontSize="sm" lineHeight="tall">
           {description}
         </Text>
       </VStack>
@@ -94,12 +155,9 @@ const FeatureCard = ({ icon, title, description, href, websiteUrl }: FeatureCard
 }
 
 export default function PortfolioPage() {
-  const bg = useColorModeValue('white', 'black')
-  const headingColor = useColorModeValue('orange.400', 'orange.300')
+  const bg = useColorModeValue('gray.50', '#0a0a0a')
+  const headingColor = useColorModeValue('gray.900', 'white')
   const subtextColor = useColorModeValue('gray.600', 'gray.400')
-  const badgeBg = useColorModeValue('orange.400', 'orange.500')
-  const badgeTextColor = useColorModeValue('white', 'black')
-  const footerBorder = useColorModeValue('orange.300', 'orange.500')
 
   return (
     <Flex direction="column" minH="100vh" bg={bg}>
@@ -108,142 +166,111 @@ export default function PortfolioPage() {
         <ColorModeButton />
       </Box>
 
-      <Box minH="100vh" position="relative" overflow="hidden">
-        <Flex minH="100vh" align="center" justify="center" px={4} zIndex="1">
-          <Container maxW="6xl" py={{ base: 20, md: 36 }}>
-            <Stack textAlign="center" gap={{ base: 8, md: 14 }}>
-              <VStack gap={4}>
-              <Box position="relative" w="360px" h="360px">
-
-                <Image
-                  src={`${import.meta.env.BASE_URL}config/profile.jpg`}
-                  boxSize="200px"
+      {/* Hero Section */}
+      <Box position="relative" overflow="hidden" pt={{ base: 20, md: 32 }} pb={{ base: 20, md: 24 }}>
+        <Container maxW="6xl">
+          <Stack direction={{ base: 'column-reverse', md: 'row' }} align="center" gap={{ base: 12, md: 20 }}>
+            <Stack flex={1} gap={{ base: 6, md: 8 }} textAlign={{ base: 'center', md: 'left' }}>
+              <VStack align={{ base: 'center', md: 'start' }} gap={4}>
+                <Badge
+                  px={3}
+                  py={1}
                   borderRadius="full"
-                  fit="cover"
-                  alt="Duarte Cardoso's profile picture"
-                  border="2px solid"
-                  borderColor="orange.500"
-                  objectPosition="0px -100px"
-                  position="absolute"
-                  top="50%"
-                  left="50%"
-                  transform="translate(-50%, -50%)"
-                  zIndex="2"
-                />
-
-                <Image
-                  src={`${import.meta.env.BASE_URL}config/bass.jpg`}
-                  boxSize="160px"
-                  borderRadius="full"
-                  fit="cover"
-                  border="2px solid"
-                  borderColor="orange.500"
-                  transform="rotate(-10deg)"
-                  position="absolute"
-                  top="-40px"
-                  left="20%"
-                  transformOrigin="center"
-                  zIndex="1"
-                  boxShadow="lg"
-                />
-
-                <Image
-                  src={`${import.meta.env.BASE_URL}config/chess.jpg`}
-                  boxSize="160px"
-                  borderRadius="full"
-                  fit="cover"
-                  border="2px solid"
-                  borderColor="orange.500"
-                  position="absolute"
-                  bottom="40px"
-                  left="-5"
-                  zIndex="1"
-                  boxShadow="lg"
-                />
-
-                <Image
-                  src={`${import.meta.env.BASE_URL}config/travel.jpg`}
-                  boxSize="160px"
-                  borderRadius="full"
-                  fit="cover"
-                  border="2px solid"
-                  borderColor="orange.500"
-                  position="absolute"
-                  bottom="20px"
-                  right="0"
-                  zIndex="1"
-                  boxShadow="lg"
-                />
-              </Box>
+                  bg={useColorModeValue('brand.50', 'whiteAlpha.100')}
+                  color={useColorModeValue('brand.700', 'brand.200')}
+                  fontSize="sm"
+                  fontWeight="medium"
+                >
+                  AI Engineer & Creative
+                </Badge>
                 <Heading
                   as="h1"
                   fontWeight="bold"
-                  fontSize={{ base: '3xl', sm: '5xl', md: '6xl' }}
-                  lineHeight="110%"
+                  fontSize={{ base: '4xl', sm: '5xl', md: '7xl' }}
+                  lineHeight="1.1"
                   color={headingColor}
+                  letterSpacing="tight"
                 >
-                  Hi, I'm Duarte.
+                  Hi, I'm <Box as="span" color={useColorModeValue('brand.600', 'brand.400')}>Duarte</Box>.
                 </Heading>
                 <Heading
-                  as="h3"
-                  fontWeight="bold"
-                  fontSize={{ base: '3l', sm: '5l', md: '6l' }}
-                  lineHeight="110%"
+                  as="h2"
+                  fontWeight="medium"
+                  fontSize={{ base: 'xl', sm: '2xl', md: '3xl' }}
+                  lineHeight="1.4"
                   color={subtextColor}
                 >
                   Musician, Chess player, Traveler and AI Engineer.
                 </Heading>
-                <Text fontSize="l" maxW="2xl" mx="auto" color={subtextColor}>
+                <Text fontSize="lg" color={subtextColor} maxW="xl" lineHeight="tall">
                   I view myself as a creative person, focused on building intelligent, user-centric systems.
                   I truly enjoy technology and am passionate about building and learning in the field.
                 </Text>
               </VStack>
 
-
-              <Stack direction={{ base: 'column', sm: 'row' }} gap={4} justify="center" align="center">
-                <Link href="https://github.com/duartecaldascardoso">
-                  <Button variant="outline" borderColor="orange.400" color="orange.300" _hover={{ bg: 'orange.500', color: 'black' }}>
-                    <Icon as={FaGithub} mr={2} />
-                    GitHub
-                  </Button>
-                </Link>
-                <Link href="mailto:caldasdcardoso@gmail.com">
-                  <Button variant="outline" borderColor="orange.400" color="orange.300" _hover={{ bg: 'orange.500', color: 'black' }}>
-                    <Icon as={FaEnvelope} mr={2} />
-                    Get in Touch
-                  </Button>
-                </Link>
+              <Stack direction={{ base: 'column', sm: 'row' }} gap={4} pt={4} justify={{ base: 'center', md: 'center' }}>
+                <ThreeDButton href="https://github.com/duartecaldascardoso">
+                  <Icon as={FaGithub} />
+                  GitHub
+                </ThreeDButton>
+                <ThreeDButton href="mailto:caldasdcardoso@gmail.com">
+                  <Icon as={FaEnvelope} />
+                  Get in Touch
+                </ThreeDButton>
               </Stack>
             </Stack>
-          </Container>
-        </Flex>
+
+            <Box flex={1} position="relative" display="flex" justifyContent="center" alignItems="center">
+              <Box
+                position="relative"
+                maxW="400px"
+                w="full"
+                aspectRatio={1}
+              >
+                <Image
+                  src={`${import.meta.env.BASE_URL}config/profile.jpg`}
+                  w="100%"
+                  h="100%"
+                  borderRadius="2xl"
+                  objectFit="cover"
+                  alt="Duarte Cardoso"
+                  shadow="2xl"
+                  zIndex={2}
+                  position="relative"
+                  objectPosition="0px -185px"
+                />
+                <Box
+                  position="absolute"
+                  top={-4}
+                  right={-4}
+                  bottom={4}
+                  left={4}
+                  border="2px solid"
+                  borderColor={useColorModeValue('brand.500', 'brand.400')}
+                  borderRadius="2xl"
+                  zIndex={1}
+                  opacity={0.5}
+                />
+              </Box>
+            </Box>
+          </Stack>
+        </Container>
       </Box>
 
       <TimelinePage />
-    
-      <Container maxW="6xl" py={16}>
+
+      <Container maxW="6xl" py={24}>
         <VStack gap={16}>
           <VStack gap={4} textAlign="center">
-            <Heading size="xl" color={headingColor}>
-              My open source projects
+            <Heading size="2xl" color={headingColor} letterSpacing="tight">
+              Open Source
             </Heading>
-            <Text fontSize="l" color={subtextColor} maxW="2xl">
-              As any rusty developer, I work on projects for my own fun. Here are some of the ones I did:
+            <Text fontSize="xl" color={subtextColor} maxW="2xl">
+              Projects I work on for fun and learning.
             </Text>
-                <Badge
-                  px={4}
-                  py={2}
-                  borderRadius="full"
-                  bg={badgeBg}
-                  color={badgeTextColor}
-                  border="1px solid"
-                  borderColor="orange.400"
-                >
-                  CLI tools • AI agents • React • Rust • Java • Python
-                </Badge>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} gap={8}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap={6} w="full">
             <FeatureCard
               icon={FaLaptopCode}
               title="Mantra Rota's Website"
@@ -252,50 +279,59 @@ export default function PortfolioPage() {
               websiteUrl="https://mantrarota.com/"
             />
             <FeatureCard
-              icon={FaCode}
-              title="Sudoku Solver"
-              description="A Sudoku puzzle solver built with backtracking and visualization logic built in Java."
-              href="https://github.com/duartecaldascardoso/sudoku-solver"
+              icon={FaBrain}
+              title="Football Manager SLMs"
+              description="A multi-agent collaboration framework focused on using SLMs for agentic work."
+              href="https://github.com/duartecaldascardoso/football-manager-slms"
             />
             <FeatureCard
               icon={FaBolt}
               title="Article-Explainer"
-              description="Agentic AI team to explain articles in an easy to understand way."
+              description={
+                <>
+                  Agentic AI team to explain articles in an easy to understand way. Mentioned twice by LangChain on{' '}
+                  <Link href="https://www.linkedin.com/posts/langchain_article-explainer-an-ai-document-analysis-activity-7385706304566194176-Lykn" color="brand.500" target="_blank" rel="noopener noreferrer" textDecoration="underline">
+                    LinkedIn
+                  </Link>!
+                </>
+              }
               href="https://github.com/duartecaldascardoso/article-explainer"
+              websiteUrl="https://www.linkedin.com/posts/langchain_article-explainer-an-ai-document-analysis-activity-7385706304566194176-Lykn"
             />
             <FeatureCard
-              icon={FaRobot}
-              title="HabitLens"
-              description="Your AI companion for building and tracking habits, being built in private."
+              icon={FaBalanceScale}
+              title="Eunomia"
+              description="Your AI companion for building and tracking habits. Being built in stealth."
               href="https://github.com/duartecaldascardoso/HabitLens"
             />
           </SimpleGrid>
         </VStack>
       </Container>
 
-      <Box borderTopWidth="1px" borderTopColor={footerBorder} py={10}>
-        <Container maxW="6l">
-          <VStack gap={6}>
-            <Heading size="xl" color={headingColor}>
-              Get in Touch
-            </Heading>
-            <Text fontSize="l" color={subtextColor}>
-              I am open to contributing to open source projects, collaborating on exciting ideas and speaking about what I do.
-            </Text>
+      <Box borderTopWidth="1px" borderTopColor={useColorModeValue('gray.200', 'whiteAlpha.100')} py={12} bg={useColorModeValue('white', 'black')}>
+        <Container maxW="6xl">
+          <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center" gap={6}>
+            <VStack align={{ base: 'center', md: 'start' }}>
+              <Heading size="lg" color={headingColor}>
+                Let's Connect
+              </Heading>
+              <Text color={subtextColor}>
+                Always open to discussing new ideas and opportunities.
+              </Text>
+            </VStack>
 
             <HStack gap={6} justify="center">
-              <Link href="https://github.com/duartecaldascardoso">
-                <Button size="lg" variant="ghost" color="orange.300" _hover={{ color: 'orange.500' }}>
-                  <Icon as={FaGithub} />
-                </Button>
-              </Link>
-              <Link href="https://www.linkedin.com/in/duartecardoso/">
-                <Button size="lg" variant="ghost" color="orange.300" _hover={{ color: 'orange.500' }}>
-                  <Icon as={FaLinkedin} />
-                </Button>
-              </Link>
+              <ThreeDButton href="https://github.com/duartecaldascardoso">
+                <Icon as={FaGithub} boxSize={6} />
+              </ThreeDButton>
+              <ThreeDButton href="https://www.linkedin.com/in/duartecardoso/">
+                <Icon as={FaLinkedin} boxSize={6} />
+              </ThreeDButton>
             </HStack>
-          </VStack>
+          </Flex>
+          <Text textAlign="center" fontSize="sm" color="gray.500" mt={10}>
+            © {new Date().getFullYear()} Duarte Cardoso. All rights reserved.
+          </Text>
         </Container>
       </Box>
     </Flex>

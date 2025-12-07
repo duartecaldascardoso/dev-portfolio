@@ -6,29 +6,33 @@ import {
     Text,
     VStack,
     Container,
+    Image,
 } from '@chakra-ui/react'
 import { useColorModeValue } from '../color-mode'
 
 export default function TimelinePage() {
-    const bg = useColorModeValue('white', 'black')
-    const standardColor = useColorModeValue('black', 'white')
-    const titleColor = useColorModeValue('gray.800', 'gray.100')
-    const dateColor = useColorModeValue('gray.500', 'gray.400')
+    const bg = useColorModeValue('gray.50', '#0a0a0a')
+    const standardColor = useColorModeValue('gray.900', 'white')
+    const titleColor = useColorModeValue('gray.900', 'white')
+    const dateColor = useColorModeValue('gray.500', 'gray.500')
 
-    const colorLife = useColorModeValue('orange.400', 'orange.400')
-    const colorEdu = useColorModeValue('blue.400', 'blue.400')
-    const colorWork = useColorModeValue('purple.400', 'purple.300')
+    const colorLife = useColorModeValue('gray.400', 'gray.600')
+    const colorEdu = useColorModeValue('gray.600', 'gray.400')
+    const colorWork = useColorModeValue('brand.500', 'brand.400')
 
     return (
-        <Box bg={bg} minH="100vh" py={20}>
-            <Container maxW="full" px={{ base: 4, md: 8 }}>
+        <Box bg={bg} minH="100vh" py={20} overflow="hidden">
+            <Container maxW="full" px={{ base: 4, md: 8 }} position="relative">
                 <VStack
                     gap={12}
                     align="stretch"
                     textAlign={{ base: 'left', md: 'center' }}
                     width="100%"
+                    maxW="4xl"
+                    mx="auto"
                 >
                     <Timeline.Root size="lg" variant="outline">
+                        {/* Born */}
                         <Timeline.Item>
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
@@ -49,6 +53,7 @@ export default function TimelinePage() {
                             </Timeline.Content>
                         </Timeline.Item>
 
+                        {/* Volleyball */}
                         <Timeline.Item>
                             <Timeline.Content
                                 flex="1"
@@ -67,7 +72,8 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                         </Timeline.Item>
 
-                        <Timeline.Item>
+                        {/* Music - Guitar */}
+                        <Timeline.Item position="relative">
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
                                 <Timeline.Separator />
@@ -87,6 +93,7 @@ export default function TimelinePage() {
                             </Timeline.Content>
                         </Timeline.Item>
 
+                        {/* Bachelors */}
                         <Timeline.Item>
                             <Timeline.Content
                                 flex="1"
@@ -108,7 +115,8 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                         </Timeline.Item>
 
-                        <Timeline.Item>
+                        {/* Chess Coach */}
+                        <Timeline.Item position="relative">
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
                                 <Timeline.Separator />
@@ -124,8 +132,34 @@ export default function TimelinePage() {
                                 <Text fontSize="sm" color={titleColor}>Chess coach for beginner and intermediate students </Text>
                                 <Text fontSize="sm" color={dateColor}>July 2022 - February 2023</Text>
                             </Timeline.Content>
+
+                            {/* Chess Image - Desktop Only */}
+                            <Box
+                                position="absolute"
+                                left="calc(50% + 500px)"
+                                top="-20px"
+                                display={{ base: 'none', lg: 'block' }}
+                                width="200px"
+                            >
+                                <Box position="relative">
+                                    <Image
+                                        src={`${import.meta.env.BASE_URL}config/chess.jpg`}
+                                        borderRadius="xl"
+                                        shadow="xl"
+                                        transform="rotate(6deg)"
+                                        border="4px solid white"
+                                        alt="Chess"
+                                    />
+                                    {/* Simple SVG Arrow attempting to point to text */}
+                                    {/* Currently just a decorative line/curve */}
+                                    <svg width="100" height="40" style={{ position: 'absolute', left: '-80px', top: '40px', transform: 'rotate(10deg)' }}>
+                                        <path d="M90,10 Q50,40 10,20" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5,5" />
+                                    </svg>
+                                </Box>
+                            </Box>
                         </Timeline.Item>
 
+                        {/* Internship */}
                         <Timeline.Item>
                             <Timeline.Content
                                 flex="1"
@@ -146,6 +180,7 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                         </Timeline.Item>
 
+                        {/* SE at MSG */}
                         <Timeline.Item>
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
@@ -166,7 +201,8 @@ export default function TimelinePage() {
                             </Timeline.Content>
                         </Timeline.Item>
 
-                        <Timeline.Item>
+                        {/* Bass Player */}
+                        <Timeline.Item position="relative">
                             <Timeline.Content
                                 flex="1"
                                 alignItems={{ base: 'flex-start', md: 'flex-end' }}
@@ -184,8 +220,32 @@ export default function TimelinePage() {
                                 <Timeline.Indicator bg={colorLife} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
+
+                            {/* Bass Image - Desktop Only */}
+                            <Box
+                                position="absolute"
+                                right="calc(50% + 500px)"
+                                top="-20px"
+                                display={{ base: 'none', lg: 'block' }}
+                                width="200px"
+                            >
+                                <Box position="relative">
+                                    <Image
+                                        src={`${import.meta.env.BASE_URL}config/bass.jpg`}
+                                        borderRadius="xl"
+                                        shadow="xl"
+                                        transform="rotate(-6deg)"
+                                        border="4px solid white"
+                                        alt="Bass Guitar"
+                                    />
+                                    <svg width="100" height="40" style={{ position: 'absolute', right: '-80px', top: '40px', transform: 'rotate(-10deg)' }}>
+                                        <path d="M10,10 Q50,40 90,20" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5,5" />
+                                    </svg>
+                                </Box>
+                            </Box>
                         </Timeline.Item>
 
+                        {/* AI Engineer */}
                         <Timeline.Item>
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
@@ -206,7 +266,8 @@ export default function TimelinePage() {
                             </Timeline.Content>
                         </Timeline.Item>
 
-                        <Timeline.Item>
+                        {/* Masters */}
+                        <Timeline.Item position="relative">
                             <Timeline.Content
                                 flex="1"
                                 alignItems={{ base: 'flex-start', md: 'flex-end' }}
@@ -223,6 +284,26 @@ export default function TimelinePage() {
                                 <Timeline.Indicator bg={colorEdu} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
+
+                            {/* Travel Image - Desktop Only */}
+                            <Box
+                                position="absolute"
+                                right="calc(50% + 500px)"
+                                bottom="-100px"
+                                display={{ base: 'none', lg: 'block' }}
+                                width="200px"
+                            >
+                                <Box position="relative">
+                                    <Image
+                                        src={`${import.meta.env.BASE_URL}config/travel.jpg`}
+                                        borderRadius="xl"
+                                        shadow="xl"
+                                        transform="rotate(12deg)"
+                                        border="4px solid white"
+                                        alt="Travel"
+                                    />
+                                </Box>
+                            </Box>
                         </Timeline.Item>
                     </Timeline.Root>
                 </VStack>
