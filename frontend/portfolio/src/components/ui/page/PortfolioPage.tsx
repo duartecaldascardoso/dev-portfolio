@@ -327,7 +327,8 @@ export default function PortfolioPage() {
             <Box flex={1} position="relative" display="flex" justifyContent="center" alignItems="center">
               <Box
                 position="relative"
-                maxW="400px"
+                mt={{ base: -8, md: -12 }}
+                maxW="340px"
                 w="full"
                 aspectRatio={1}
               >
