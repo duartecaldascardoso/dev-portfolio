@@ -23,6 +23,7 @@ import {
   FaBolt,
   FaBalanceScale,
   FaBrain,
+  FaFileAlt,
 } from 'react-icons/fa'
 import { ColorModeButton, useColorModeValue } from '../color-mode';
 import TimelinePage from './TimelinePage';
@@ -31,9 +32,10 @@ interface ThreeDButtonProps extends React.ComponentProps<typeof Box> {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
+  newTab?: boolean;
 }
 
-const ThreeDButton = ({ children, href, onClick, ...props }: ThreeDButtonProps) => {
+const ThreeDButton = ({ children, href, onClick, newTab, ...props }: ThreeDButtonProps) => {
   const bg = useColorModeValue('white', 'gray.900');
   const color = useColorModeValue('black', 'white');
   const borderColor = useColorModeValue('black', 'white');
@@ -77,7 +79,13 @@ const ThreeDButton = ({ children, href, onClick, ...props }: ThreeDButtonProps) 
 
   if (href) {
     return (
-      <Link href={href} textDecoration="none" _hover={{ textDecoration: 'none' }}>
+      <Link
+        href={href}
+        textDecoration="none"
+        _hover={{ textDecoration: 'none' }}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noopener noreferrer" : undefined}
+      >
         {Component}
       </Link>
     );
@@ -154,20 +162,112 @@ const FeatureCard = ({ icon, title, description, href, websiteUrl }: FeatureCard
   )
 }
 
+// import { keyframes } from '@emotion/react' removed
+
+// bounce keyframes removed
+
 export default function PortfolioPage() {
   const bg = useColorModeValue('gray.50', '#0a0a0a')
   const headingColor = useColorModeValue('gray.900', 'white')
   const subtextColor = useColorModeValue('gray.600', 'gray.400')
+  // arrowColor removed
 
   return (
-    <Flex direction="column" minH="100vh" bg={bg}>
+    <Flex direction="column" minH="100vh" bg={bg} position="relative" overflow="hidden">
+
+      {/* Global Background Flair - More Light Sources */}
+
+      <Box
+        position="absolute"
+        top="-10%"
+        left="-10%"
+        width="600px"
+        height="600px"
+        bg="brand.500"
+        opacity="0.12"
+        filter="blur(140px)"
+        zIndex="0"
+        pointerEvents="none"
+        borderRadius="full"
+      />
+
+      <Box
+        position="absolute"
+        top="-5%"
+        right="-5%"
+        width="400px"
+        height="400px"
+        bg="brand.300"
+        opacity="0.10"
+        filter="blur(120px)"
+        zIndex="0"
+        pointerEvents="none"
+        borderRadius="full"
+      />
+
+
+      <Box
+        position="absolute"
+        top="40%"
+        right="-10%"
+        width="500px"
+        height="500px"
+        bg="brand.400"
+        opacity="0.10"
+        filter="blur(140px)"
+        zIndex="0"
+        pointerEvents="none"
+        borderRadius="full"
+      />
+
+      <Box
+        position="absolute"
+        top="50%"
+        left="-5%"
+        width="450px"
+        height="450px"
+        bg="brand.600"
+        opacity="0.08"
+        filter="blur(130px)"
+        zIndex="0"
+        pointerEvents="none"
+        borderRadius="full"
+      />
+
+
+      <Box
+        position="absolute"
+        bottom="-10%"
+        left="10%"
+        width="500px"
+        height="500px"
+        bg="brand.600"
+        opacity="0.12"
+        filter="blur(140px)"
+        zIndex="0"
+        pointerEvents="none"
+        borderRadius="full"
+      />
+
+      <Box
+        position="absolute"
+        bottom="5%"
+        right="10%"
+        width="550px"
+        height="550px"
+        bg="brand.500"
+        opacity="0.10"
+        filter="blur(140px)"
+        zIndex="0"
+        pointerEvents="none"
+        borderRadius="full"
+      />
 
       <Box position="fixed" top={6} right={6} zIndex="1000" p={2}>
         <ColorModeButton />
       </Box>
 
-      {/* Hero Section */}
-      <Box position="relative" overflow="hidden" pt={{ base: 20, md: 32 }} pb={{ base: 20, md: 24 }}>
+      <Box position="relative" overflow="hidden" pt={{ base: 20, md: 32 }} pb={{ base: 10, md: 12 }}>
         <Container maxW="6xl">
           <Stack direction={{ base: 'column-reverse', md: 'row' }} align="center" gap={{ base: 12, md: 20 }}>
             <Stack flex={1} gap={{ base: 6, md: 8 }} textAlign={{ base: 'center', md: 'left' }}>
@@ -200,7 +300,7 @@ export default function PortfolioPage() {
                   lineHeight="1.4"
                   color={subtextColor}
                 >
-                  Musician, Chess player, Traveler and AI Engineer.
+                  AI Engineer, Musician, Chess player and Traveler
                 </Heading>
                 <Text fontSize="lg" color={subtextColor} maxW="xl" lineHeight="tall">
                   I view myself as a creative person, focused on building intelligent, user-centric systems.
@@ -208,14 +308,18 @@ export default function PortfolioPage() {
                 </Text>
               </VStack>
 
-              <Stack direction={{ base: 'column', sm: 'row' }} gap={4} pt={4} justify={{ base: 'center', md: 'center' }}>
+              <Stack direction={{ base: 'column', sm: 'row' }} gap={4} pt={4} justify={{ base: 'center', md: 'center' }} align="center">
                 <ThreeDButton href="https://github.com/duartecaldascardoso">
                   <Icon as={FaGithub} />
                   GitHub
                 </ThreeDButton>
                 <ThreeDButton href="mailto:caldasdcardoso@gmail.com">
                   <Icon as={FaEnvelope} />
-                  Get in Touch
+                  Email
+                </ThreeDButton>
+                <ThreeDButton href={`${import.meta.env.BASE_URL}config/DuarteCardoso.pdf`} newTab>
+                  <Icon as={FaFileAlt} />
+                  Curriculum
                 </ThreeDButton>
               </Stack>
             </Stack>
@@ -254,19 +358,20 @@ export default function PortfolioPage() {
               </Box>
             </Box>
           </Stack>
+
         </Container>
       </Box>
 
       <TimelinePage />
 
-      <Container maxW="6xl" py={24}>
+      <Container maxW="6xl" py={48}>
         <VStack gap={16}>
           <VStack gap={4} textAlign="center">
             <Heading size="2xl" color={headingColor} letterSpacing="tight">
               Open Source
             </Heading>
             <Text fontSize="xl" color={subtextColor} maxW="2xl">
-              Projects I work on for fun and learning.
+              Building projects means the world to me. Check some of them below.
             </Text>
           </VStack>
 
@@ -274,14 +379,14 @@ export default function PortfolioPage() {
             <FeatureCard
               icon={FaLaptopCode}
               title="Mantra Rota's Website"
-              description="A website for Mantra Rota, my band! It showcases our music, events, and more."
+              description="A website for Mantra Rota, my band! It showcases our music, events, and more. Built using Mithril.js."
               href="https://github.com/duartecaldascardoso/mantra-rota"
               websiteUrl="https://mantrarota.com/"
             />
             <FeatureCard
               icon={FaBrain}
               title="Football Manager SLMs"
-              description="A multi-agent collaboration framework focused on using SLMs for agentic work."
+              description="A multi-agent collaboration framework focused on using SLMs for agentic work. Fine-tuning pipelines for Agentic focused work."
               href="https://github.com/duartecaldascardoso/football-manager-slms"
             />
             <FeatureCard
@@ -301,7 +406,7 @@ export default function PortfolioPage() {
             <FeatureCard
               icon={FaBalanceScale}
               title="Eunomia"
-              description="Your AI companion for building and tracking habits. Being built in stealth."
+              description="Your AI companion for building and tracking habits. Being built in stealth. Verging the gap in the use of ML for Agentic work."
               href="https://github.com/duartecaldascardoso/HabitLens"
             />
           </SimpleGrid>
@@ -311,7 +416,7 @@ export default function PortfolioPage() {
       <Box borderTopWidth="1px" borderTopColor={useColorModeValue('gray.200', 'whiteAlpha.100')} py={12} bg={useColorModeValue('white', 'black')}>
         <Container maxW="6xl">
           <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center" gap={6}>
-            <VStack align={{ base: 'center', md: 'start' }}>
+            <VStack align={{ base: 'center', md: 'start' }} textAlign={{ base: 'center', md: 'left' }}>
               <Heading size="lg" color={headingColor}>
                 Let's Connect
               </Heading>
