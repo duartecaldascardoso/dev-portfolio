@@ -10,9 +10,9 @@ interface ThreeDButtonProps extends React.ComponentProps<typeof Box> {
 }
 
 export const ThreeDButton = ({ children, href, onClick, newTab, ...props }: ThreeDButtonProps) => {
-    const bg = useColorModeValue('white', 'gray.900');
+    const bg = useColorModeValue('white', 'gray.800');
     const color = useColorModeValue('black', 'white');
-    const borderColor = useColorModeValue('black', 'gray.200');
+    const borderColor = 'black'; // Always black border as per user request ("same colors... in black mode") - actually MediumCard has useColorModeValue('black', 'black') so it's always black.
 
     const Component = (
         <Box
@@ -32,14 +32,14 @@ export const ThreeDButton = ({ children, href, onClick, newTab, ...props }: Thre
             left="0px"
             boxShadow={useColorModeValue(
                 `4px 4px 0px 0px ${borderColor}`,
-                `4px 4px 0px 0px var(--chakra-colors-white)`
+                `4px 4px 0px 0px var(--chakra-colors-gray-600)`
             )}
             _active={{
                 top: "2px",
                 left: "2px",
                 boxShadow: useColorModeValue(
                     `2px 2px 0px 0px ${borderColor}`,
-                    `2px 2px 0px 0px var(--chakra-colors-white)`
+                    `2px 2px 0px 0px var(--chakra-colors-gray-600)`
                 ),
             }}
             _hover={{
@@ -47,7 +47,7 @@ export const ThreeDButton = ({ children, href, onClick, newTab, ...props }: Thre
                 left: "-1px",
                 boxShadow: useColorModeValue(
                     `6px 6px 0px 0px ${borderColor}`,
-                    `6px 6px 0px 0px var(--chakra-colors-white)`
+                    `6px 6px 0px 0px var(--chakra-colors-gray-600)`
                 ),
             }}
             display="flex"

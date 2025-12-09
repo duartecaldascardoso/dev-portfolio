@@ -54,20 +54,20 @@ export const ProjectCard = ({
             left="0px"
             boxShadow={useColorModeValue(
                 `6px 6px 0px 0px ${borderColor}`,
-                `6px 6px 0px 0px var(--chakra-colors-white)`
+                `6px 6px 0px 0px var(--chakra-colors-gray-600)`
             )}
             _hover={{
                 top: "-2px",
                 left: "-2px",
                 boxShadow: useColorModeValue(
                     `8px 8px 0px 0px ${borderColor}`,
-                    `8px 8px 0px 0px var(--chakra-colors-white)`
+                    `8px 8px 0px 0px var(--chakra-colors-gray-600)`
                 ),
             }}
             display="flex"
             flexDirection="column"
         >
-            <Box position="relative" h="200px" overflow="hidden" borderBottom="2px solid" borderColor={borderColor}>
+            <Box position="relative" h="180px" overflow="hidden" borderBottom="2px solid" borderColor={borderColor}>
                 {Array.isArray(imageSrc) ? (
                     <HStack gap={0} h="100%" w="100%">
                         <Box flex={1} h="100%" overflow="hidden" borderRight="1px solid" borderColor={borderColor}>
@@ -123,7 +123,7 @@ export const ProjectCard = ({
                 )}
             </Box>
 
-            <VStack p={6} align="start" gap={4} flex={1}>
+            <VStack p={4} align="start" gap={3} flex={1}>
                 <VStack align="start" gap={2} w="full">
                     <HStack justify="space-between" w="full">
                         <Heading size="md" color={headingColor}>

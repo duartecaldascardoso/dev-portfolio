@@ -3,7 +3,8 @@ import { Box } from '@chakra-ui/react';
 
 export const BackgroundFlair = () => {
     return (
-        <>
+        <Box position="absolute" inset={0} overflow="hidden" pointerEvents="none" zIndex={0}>
+
             <Box
                 position="absolute"
                 top="-10%"
@@ -87,6 +88,6 @@ export const BackgroundFlair = () => {
                 pointerEvents="none"
                 borderRadius="full"
             />
-        </>
+        </Box>
     );
 };

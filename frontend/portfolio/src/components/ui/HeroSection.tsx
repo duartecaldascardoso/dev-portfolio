@@ -19,7 +19,7 @@ export const HeroSection = () => {
     const subtextColor = useColorModeValue('gray.600', 'gray.400');
 
     return (
-        <Box position="relative" overflow="hidden" pt={{ base: 20, md: 32 }} pb={{ base: 10, md: 12 }}>
+        <Box position="relative" overflow="hidden" pb={{ base: 10, md: 12 }}>
             <Container maxW="6xl">
                 <Stack direction={{ base: 'column-reverse', md: 'row' }} align="center" gap={{ base: 12, md: 20 }}>
                     <Stack flex={1} gap={{ base: 6, md: 8 }} textAlign={{ base: 'center', md: 'left' }}>
