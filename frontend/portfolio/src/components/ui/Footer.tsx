@@ -9,7 +9,7 @@ import {
     Icon,
     Grid,
 } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useColorModeValue } from './color-mode';
 import { ThreeDButton } from './ThreeDButton';
 
@@ -53,12 +53,6 @@ export const Footer = () => {
                         </ThreeDButton>
                         <ThreeDButton href="https://www.linkedin.com/in/duartecardoso/">
                             <Icon as={FaLinkedin} boxSize={5} />
-                        </ThreeDButton>
-                        <ThreeDButton href="mailto:caldasdcardoso@gmail.com">
-                            <Icon as={FaEnvelope} boxSize={5} />
-                        </ThreeDButton>
-                        <ThreeDButton href={`${import.meta.env.BASE_URL}config/DuarteCardoso.pdf`} newTab>
-                            <Icon as={FaFileAlt} boxSize={5} />
                         </ThreeDButton>
                     </HStack>
 
