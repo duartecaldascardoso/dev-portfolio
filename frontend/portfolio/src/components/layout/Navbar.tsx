@@ -8,7 +8,7 @@ import { ColorModeButton } from '../ui/color-mode';
 const MotionBox = motion(Box);
 
 const navLinks = [
-    { name: 'About', path: '/' },
+    { name: 'Me :)', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'Publications', path: '/publications' },
 ];
