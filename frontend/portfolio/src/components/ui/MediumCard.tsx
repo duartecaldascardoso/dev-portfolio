@@ -76,6 +76,9 @@ export const MediumCard = ({
                     <Text color={textColor} fontSize="sm" lineHeight="tall" lineClamp={3}>
                         {description}
                     </Text>
+                    <Text fontSize="sm" fontWeight="bold" textDecoration="underline">
+                        Read more
+                    </Text>
                 </VStack>
             </VStack>
 

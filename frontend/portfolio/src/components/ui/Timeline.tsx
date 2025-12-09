@@ -33,10 +33,6 @@ export default function TimelinePage() {
 
     const activeColor = 'brand.500';
 
-    const colorLife = useColorModeValue('gray.400', 'gray.600')
-    const colorEdu = useColorModeValue('gray.600', 'gray.400')
-    const colorWork = useColorModeValue('brand.500', 'brand.400')
-
     return (
         <Box minH="100vh" py={20} overflow="visible" zIndex="1" position="relative">
             <Container maxW="full" px={{ base: 4, md: 8 }} position="relative">
@@ -100,7 +96,7 @@ export default function TimelinePage() {
                             </Timeline.Content>
                             <Timeline.Connector>
                                 <Timeline.Separator />
-                                <Timeline.Indicator bg={colorLife} />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
 
@@ -128,7 +124,7 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
                                 <Timeline.Separator />
-                                <Timeline.Indicator bg={colorLife} />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
                                 flex="1"
@@ -179,7 +175,7 @@ export default function TimelinePage() {
                             </Timeline.Content>
                             <Timeline.Connector>
                                 <Timeline.Separator />
-                                <Timeline.Indicator bg={colorEdu} />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
                         </Timeline.Item>
@@ -188,7 +184,7 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
                                 <Timeline.Separator />
-                                <Timeline.Indicator bg={colorLife} />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
                                 flex="1"
@@ -237,7 +233,7 @@ export default function TimelinePage() {
                             </Timeline.Content>
                             <Timeline.Connector>
                                 <Timeline.Separator />
-                                <Timeline.Indicator bg={colorWork} />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
                         </Timeline.Item>
@@ -246,7 +242,7 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
                                 <Timeline.Separator />
-                                <Timeline.Indicator bg={colorWork} />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
                                 flex="1"

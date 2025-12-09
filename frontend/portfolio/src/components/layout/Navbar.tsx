@@ -76,7 +76,7 @@ export const Navbar = () => {
                                     fontWeight="bold"
                                     transition="color 0.2s"
                                     _hover={{
-                                        color: isActive ? undefined : activeColor,
+                                        color: isActive ? undefined : activeBg,
                                     }}
                                 >
                                     {isActive && (
@@ -98,9 +98,6 @@ export const Navbar = () => {
                     ))}
                 </HStack>
 
-                {/* Separator */}
-                <Box w="1px" h="24px" bg="gray.300" mx={2} display={{ base: 'none', md: 'block' }} />
-
                 {/* Mobile Navigation Toggle */}
                 <HStack display={{ base: 'flex', md: 'none' }} gap={2}>
                     <IconButton
@@ -113,9 +110,12 @@ export const Navbar = () => {
                         {open ? <FaTimes /> : <FaBars />}
                     </IconButton>
                 </HStack>
-
-                <ColorModeButton />
             </Flex>
+
+            {/* Theme Toggler - Top Right */}
+            <Box position="absolute" top={6} right={6} pointerEvents="auto">
+                <ColorModeButton />
+            </Box>
 
             {/* Mobile Navigation Menu Overlay */}
             <AnimatePresence>

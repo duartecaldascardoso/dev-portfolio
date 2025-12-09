@@ -15,11 +15,11 @@ import { useColorModeValue } from './color-mode';
 import { ProjectCard } from './ProjectCard';
 
 const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
-    const bg = useColorModeValue('white', 'black'); // Match ProjectCard: white / black
+    const bg = useColorModeValue('white', 'black');
     const borderColor = useColorModeValue('black', 'black');
     const headingColor = useColorModeValue('gray.900', 'white');
-    const badgeBg = useColorModeValue('brand.50', 'whiteAlpha.200'); // Match ProjectCard badge
-    const badgeColor = useColorModeValue('brand.700', 'brand.200'); // Match ProjectCard badge
+    const badgeBg = useColorModeValue('brand.50', 'whiteAlpha.200');
+    const badgeColor = useColorModeValue('brand.700', 'brand.200');
 
     return (
         <Box
@@ -35,7 +35,7 @@ const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
             h="full"
             boxShadow={useColorModeValue(
                 `6px 6px 0px 0px ${borderColor}`,
-                `6px 6px 0px 0px var(--chakra-colors-gray-600)` // Match ProjectCard shadow
+                `6px 6px 0px 0px var(--chakra-colors-gray-600)`
             )}
             _hover={{
                 top: "-2px",
@@ -76,7 +76,7 @@ export const ProjectsSection = () => {
     const subtextColor = useColorModeValue('gray.600', 'gray.400');
 
     return (
-        <Container maxW="7xl" py={12}>
+        <Container maxW="7xl">
             <VStack gap={16}>
                 <VStack gap={4} textAlign="center">
                     <Heading size="2xl" color={headingColor} letterSpacing="tight">
@@ -88,6 +88,71 @@ export const ProjectsSection = () => {
                 </VStack>
 
                 <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={8} w="full">
+                    <ProjectCard
+                        title="Eunomia"
+                        description="Your AI companion for building and tracking habits. Being built in stealth. Verging the gap in the use of ML for Agentic work."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/Eunomia.png`}
+                        techStack={['React', 'Django', 'Python', 'Scikit Learn', 'LangChain', 'LangGraph', 'NumPy']}
+                        githubUrl="https://github.com/duartecaldascardoso/HabitLens"
+                        blurImage={true}
+                    />
+                    <ProjectCard
+                        title="Insurance Test Data Generation"
+                        description="Master's thesis project leveraging Generative AI and traditional software methods to synthesize complex test data structures for insurance products."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/insuranceThesis.png`}
+                        techStack={['Python', 'LangChain', 'Spring Boot', 'React', 'Typescript', 'Docker', 'Jenkins', 'LangGraph']}
+                    />
+                    <ProjectCard
+                        title="Article-Explainer"
+                        description={
+                            <>
+                                Agentic AI team to explain articles in an easy to understand way. Mentioned twice by LangChain on{' '}
+                                <Link href="https://www.linkedin.com/posts/langchain_article-explainer-an-ai-document-analysis-activity-7385706304566194176-Lykn" color="brand.500" target="_blank" rel="noopener noreferrer" textDecoration="underline">
+                                    LinkedIn
+                                </Link>!
+                            </>
+                        }
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/ArticleExplainer.png`}
+                        techStack={['Streamlit', 'Python', 'LangChain', 'LangGraph']}
+                        githubUrl="https://github.com/duartecaldascardoso/article-explainer"
+                        websiteUrl="https://www.linkedin.com/posts/langchain_article-explainer-an-ai-document-analysis-activity-7385706304566194176-Lykn"
+                    />
+                    <ProjectCard
+                        title="ScalerPath"
+                        description="A comprehensive E-commerce platform featuring advanced stock management, sales analytics, and inventory tracking. Served as CTO and first client contact for this private product."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/scalerPath.png`}
+                        techStack={['Python', 'React', 'TypeScript', 'Chakra', 'Django', 'PostgreSQL', 'Docker', 'Amazon Seller', 'Vercel']}
+                        websiteUrl="https://scalerpath.com/"
+                        blurImage={true}
+                    />
+                    <ProjectCard
+                        title="Damn"
+                        description="A Rust-based CLI utility that intelligently corrects typoed commands by analyzing string similarity with command history."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/damn.png`}
+                        techStack={['Rust', 'Shell']}
+                        githubUrl="https://github.com/duartecaldascardoso/damn"
+                    />
+                    <ProjectCard
+                        title="FolderSort"
+                        description="An automated file organization tool that sorts files by date, type, or size using custom scripts. Currently evolving to include AI-driven sorting capabilities."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/folderSort.png`}
+                        techStack={['Python', 'CLI', 'LangGraph', 'Pydantic']}
+                        githubUrl="https://github.com/duartecaldascardoso/folderSort"
+                        websiteUrl="https://duartecaldascardoso.github.io/folderSort/"
+                    />
+                    <ProjectCard
+                        title="NewsTailor"
+                        description="A smart, AI-driven news curator that personalizes content delivery based on user interests and time availability, powered by OpenAI."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/NewsTailor.png`}
+                        techStack={['Python', 'React', 'TypeScript', 'OpenAI', 'Django', 'PostgreSQL', 'Docker']}
+                    />
+                    <ProjectCard
+                        title="Sudoku Solver"
+                        description="A high-performance command-line Sudoku solver implemented in Java utilizing the backtracking algorithm."
+                        imageSrc={`${import.meta.env.BASE_URL}config/projects/sudoku.png`}
+                        techStack={['Java']}
+                        githubUrl="https://github.com/duartecaldascardoso/SudokuSolver"
+                    />
                     <ProjectCard
                         title="Mantra Rota's Website"
                         description="A website for Mantra Rota, my band! It showcases our music, events, and more. Built using Mithril.js."
@@ -108,29 +173,6 @@ export const ProjectsSection = () => {
                         githubUrl="https://github.com/duartecaldascardoso/football-manager-slms"
                     />
                     <ProjectCard
-                        title="Article-Explainer"
-                        description={
-                            <>
-                                Agentic AI team to explain articles in an easy to understand way. Mentioned twice by LangChain on{' '}
-                                <Link href="https://www.linkedin.com/posts/langchain_article-explainer-an-ai-document-analysis-activity-7385706304566194176-Lykn" color="brand.500" target="_blank" rel="noopener noreferrer" textDecoration="underline">
-                                    LinkedIn
-                                </Link>!
-                            </>
-                        }
-                        imageSrc={`${import.meta.env.BASE_URL}config/projects/ArticleExplainer.png`}
-                        techStack={['Streamlit', 'Python', 'LangChain', 'LangGraph']}
-                        githubUrl="https://github.com/duartecaldascardoso/article-explainer"
-                        websiteUrl="https://www.linkedin.com/posts/langchain_article-explainer-an-ai-document-analysis-activity-7385706304566194176-Lykn"
-                    />
-                    <ProjectCard
-                        title="Eunomia"
-                        description="Your AI companion for building and tracking habits. Being built in stealth. Verging the gap in the use of ML for Agentic work."
-                        imageSrc={`${import.meta.env.BASE_URL}config/projects/Eunomia.png`}
-                        techStack={['React', 'Django', 'Python', 'Scikit Learn', 'LangChain', 'LangGraph', 'NumPy']}
-                        githubUrl="https://github.com/duartecaldascardoso/HabitLens"
-                        blurImage={true}
-                    />
-                    <ProjectCard
                         title="truck-routing-system"
                         description="A 3D web-based logistics simulation system, built with Three.js for interactive spatial visualization and powered by a C# backend that manages real-time operational data to generate warehouses, schedule truck routes, and simulate live delivery flows across the map."
                         imageSrc={[
@@ -148,8 +190,8 @@ export const ProjectsSection = () => {
                     />
                 </SimpleGrid>
 
-                <VStack gap={8} w="full" align="start" mt={8}>
-                    <VStack align="start" gap={2}>
+                <VStack gap={8} w="full" align="center" mt={4}>
+                    <VStack align="center" gap={2} textAlign="center">
                         <Heading size="xl" color={headingColor} letterSpacing="tight">
                             Technical Skills
                         </Heading>
