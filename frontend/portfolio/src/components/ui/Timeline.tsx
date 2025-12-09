@@ -9,7 +9,7 @@ import {
     Image,
 } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
-import { useColorModeValue } from '../color-mode'
+import { useColorModeValue } from './color-mode'
 
 const pulse = keyframes`
   0% {

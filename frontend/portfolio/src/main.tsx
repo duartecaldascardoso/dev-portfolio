@@ -5,7 +5,6 @@ import { ColorModeProvider } from './components/ui/color-mode.tsx'
 import { system } from "./theme.ts";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PortfolioPage from './components/ui/page/PortfolioPage.tsx';
-import TimelinePage from './components/ui/page/TimelinePage.tsx';
 
 const redirectPath = sessionStorage.redirect
 if (redirectPath) {
@@ -22,8 +21,6 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/dev-portfolio/" element={<PortfolioPage />} />
             <Route path="/home" element={<PortfolioPage />} />
             <Route path="/" element={<PortfolioPage />} />
-            <Route path="/dev-portfolio/timeline" element={<TimelinePage />} />
-            <Route path="/timeline" element={<TimelinePage />} />
           </Routes>
         </BrowserRouter>
       </ColorModeProvider>
