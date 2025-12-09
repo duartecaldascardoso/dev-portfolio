@@ -4,7 +4,6 @@ import {
     Container,
     Stack,
     VStack,
-    Badge,
     Heading,
     Text,
     Image,
@@ -19,22 +18,11 @@ export const HeroSection = () => {
     const subtextColor = useColorModeValue('gray.600', 'gray.400');
 
     return (
-        <Box position="relative" overflow="hidden" pb={{ base: 10, md: 12 }}>
+        <Box position="relative" overflow="hidden" pb={{ base: 10, md: 12 }} pt={{ base: 20, md: 32 }}>
             <Container maxW="6xl">
                 <Stack direction={{ base: 'column-reverse', md: 'row' }} align="center" gap={{ base: 12, md: 20 }}>
                     <Stack flex={1} gap={{ base: 6, md: 8 }} textAlign={{ base: 'center', md: 'left' }}>
                         <VStack align={{ base: 'center', md: 'start' }} gap={4}>
-                            <Badge
-                                px={3}
-                                py={1}
-                                borderRadius="full"
-                                bg={useColorModeValue('brand.50', 'whiteAlpha.100')}
-                                color={useColorModeValue('brand.700', 'brand.200')}
-                                fontSize="sm"
-                                fontWeight="medium"
-                            >
-                                AI Engineer & Creative
-                            </Badge>
                             <Heading
                                 as="h1"
                                 fontWeight="bold"
@@ -60,18 +48,15 @@ export const HeroSection = () => {
                             </Text>
                         </VStack>
 
-                        <Stack direction={{ base: 'column', sm: 'row' }} gap={4} pt={4} justify={{ base: 'center', md: 'center' }} align="center">
+                        <Stack direction="row" wrap="wrap" gap={4} pt={4} justify={{ base: 'center', md: 'start' }} align="center">
                             <ThreeDButton href="https://github.com/duartecaldascardoso">
                                 <Icon as={FaGithub} />
-                                GitHub
                             </ThreeDButton>
                             <ThreeDButton href="mailto:caldasdcardoso@gmail.com">
                                 <Icon as={FaEnvelope} />
-                                Email
                             </ThreeDButton>
                             <ThreeDButton href={`${import.meta.env.BASE_URL}config/DuarteCardoso.pdf`} newTab>
                                 <Icon as={FaFileAlt} />
-                                Curriculum
                             </ThreeDButton>
                         </Stack>
                     </Stack>
@@ -98,8 +83,8 @@ export const HeroSection = () => {
                             />
                             <Box
                                 position="absolute"
-                                top={-4}
-                                right={-4}
+                                top={-2}
+                                right={-2}
                                 bottom={4}
                                 left={4}
                                 border="2px solid"

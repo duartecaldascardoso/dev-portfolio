@@ -11,7 +11,7 @@ import {
 import { FaMedium } from 'react-icons/fa';
 import { useColorModeValue } from './color-mode';
 
-interface MediumCardProps {
+interface ArticleCardProps {
     title: string;
     description: string;
     date: string;
@@ -19,14 +19,14 @@ interface MediumCardProps {
     readTime?: string;
 }
 
-export const MediumCard = ({
+export const ArticleCard = ({
     title,
     description,
     date,
     href,
     readTime,
     icon = FaMedium,
-}: MediumCardProps & { icon?: React.ElementType }) => {
+}: ArticleCardProps & { icon?: React.ElementType }) => {
     const bg = useColorModeValue('white', 'gray.800');
     const borderColor = useColorModeValue('black', 'black');
     const headingColor = useColorModeValue('gray.900', 'white');
@@ -83,7 +83,7 @@ export const MediumCard = ({
             </VStack>
 
             {readTime && (
-                <Text fontSize="xs" color={dateColor} mt={4} fontWeight="medium">
+                <Text fontSize="xs" color={dateColor} mt={4} fontWeight="Article">
                     {readTime} read
                 </Text>
             )}

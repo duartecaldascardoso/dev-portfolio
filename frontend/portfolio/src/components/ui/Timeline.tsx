@@ -34,7 +34,7 @@ export default function TimelinePage() {
     const activeColor = 'brand.500';
 
     return (
-        <Box minH="100vh" py={20} overflow="visible" zIndex="1" position="relative">
+        <Box minH="100vh" overflow="visible" zIndex="1" position="relative">
             <Container maxW="full" px={{ base: 4, md: 8 }} position="relative">
                 <VStack
                     gap={12}
@@ -372,8 +372,8 @@ export default function TimelinePage() {
 
                             <Box
                                 position="absolute"
-                                left="calc(50% + 100px)"
-                                bottom="-150px"
+                                left="calc(50% + 200px)"
+                                bottom="-75px"
                                 display={{ base: 'none', lg: 'block' }}
                                 width="160px"
                             >

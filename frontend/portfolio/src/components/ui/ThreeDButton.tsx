@@ -12,7 +12,7 @@ interface ThreeDButtonProps extends React.ComponentProps<typeof Box> {
 export const ThreeDButton = ({ children, href, onClick, newTab, ...props }: ThreeDButtonProps) => {
     const bg = useColorModeValue('white', 'gray.800');
     const color = useColorModeValue('black', 'white');
-    const borderColor = 'black'; // Always black border as per user request ("same colors... in black mode") - actually MediumCard has useColorModeValue('black', 'black') so it's always black.
+    const borderColor = 'black';
 
     const Component = (
         <Box

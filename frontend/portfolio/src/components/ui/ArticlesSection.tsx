@@ -7,7 +7,7 @@ import {
     SimpleGrid,
 } from '@chakra-ui/react';
 import { useColorModeValue } from './color-mode';
-import { MediumCard } from './MediumCard';
+import { ArticleCard } from './ArticleCard';
 
 export const ArticlesSection = () => {
     const headingColor = useColorModeValue('gray.900', 'white');
@@ -26,21 +26,21 @@ export const ArticlesSection = () => {
                 </VStack>
 
                 <SimpleGrid columns={{ base: 1, md: 3 }} gap={8} w="full">
-                    <MediumCard
+                    <ArticleCard
                         title="The Underrated Role of Small Language Models in Agentic AI"
                         description="I recently stumbled upon a thought-evoking research paper from NVIDIA that challenged how I view AI agents. The premise was simple: we are probably using models that are way too big for what most AI agents actually need to do."
                         date="Nov 9, 2025"
                         readTime="5 min"
                         href="https://medium.com/@caldasdcardoso/the-underrated-role-of-small-language-models-in-agentic-ai-66236a32c576"
                     />
-                    <MediumCard
+                    <ArticleCard
                         title="Inside the LangChain x Manus Webinar on Context Engineering"
                         description='On October 14th, LangChain hosted a webinar exploring one of the most critical emerging topics in AI systems: Context Engineering. Led by Lance Martin and featuring Yichao "Peak" from Manus, the session unpacked how context management is reshaping the design of agentic systems, especially in what many are calling the year of agents.'
                         date="Oct 14, 2025"
                         readTime="4 min"
                         href="https://medium.com/@caldasdcardoso/inside-the-langchain-x-manus-webinar-on-context-engineering-69166ee404db"
                     />
-                    <MediumCard
+                    <ArticleCard
                         title="Swarm Architecture Agents in LangGraph"
                         description="LangGraph provides several ways to handle multi agent interactions. Knowing these can be beneficial when handling different kinds of use cases which may be more prone towards user interaction or complex research tasks for example."
                         date="Sep 10, 2025"

@@ -2,14 +2,14 @@
 import {
     Box,
     Container,
-    Flex,
     VStack,
     Heading,
     Text,
     HStack,
     Icon,
+    Grid,
 } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import { useColorModeValue } from './color-mode';
 import { ThreeDButton } from './ThreeDButton';
 
@@ -28,16 +28,15 @@ export const Footer = () => {
             borderTopColor={useColorModeValue('gray.200', 'whiteAlpha.100')}
             py={3}
         >
-            <Container maxW="6xl">
-                <Flex
-                    direction={{ base: 'column', md: 'row' }}
-                    justify="space-between"
-                    align="center"
+            <Container maxW="full" px={{ base: 6, md: 8 }}>
+                <Grid
+                    templateColumns={{ base: '1fr', md: '1fr auto 1fr' }}
                     gap={4}
+                    alignItems="center"
                 >
                     <VStack
-                        align={{ base: 'center', md: 'start' }}
-                        textAlign={{ base: 'center', md: 'left' }}
+                        align="start"
+                        textAlign="left"
                         gap={0}
                     >
                         <Heading size="md" color={headingColor}>
@@ -55,11 +54,17 @@ export const Footer = () => {
                         <ThreeDButton href="https://www.linkedin.com/in/duartecardoso/">
                             <Icon as={FaLinkedin} boxSize={5} />
                         </ThreeDButton>
+                        <ThreeDButton href="mailto:caldasdcardoso@gmail.com">
+                            <Icon as={FaEnvelope} boxSize={5} />
+                        </ThreeDButton>
+                        <ThreeDButton href={`${import.meta.env.BASE_URL}config/DuarteCardoso.pdf`} newTab>
+                            <Icon as={FaFileAlt} boxSize={5} />
+                        </ThreeDButton>
                     </HStack>
-                </Flex>
-                <Text textAlign="center" fontSize="xs" color="gray.500" mt={2}>
-                    © {new Date().getFullYear()} Duarte Cardoso. All rights reserved.
-                </Text>
+
+                    {/* Empty Box to balance the grid on desktop */}
+                    <Box display={{ base: 'none', md: 'block' }} />
+                </Grid>
             </Container>
         </Box>
     );

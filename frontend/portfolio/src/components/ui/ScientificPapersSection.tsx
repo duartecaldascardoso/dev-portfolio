@@ -7,9 +7,9 @@ import {
     SimpleGrid,
 } from '@chakra-ui/react';
 import { useColorModeValue } from './color-mode';
-import { MediumCard } from './MediumCard';
 
 import { FaFileAlt } from 'react-icons/fa';
+import { ArticleCard } from './ArticleCard';
 
 export const ScientificPapersSection = () => {
     const headingColor = useColorModeValue('gray.900', 'white');
@@ -28,17 +28,17 @@ export const ScientificPapersSection = () => {
                 </VStack>
 
                 <SimpleGrid columns={{ base: 1, md: 2 }} gap={8} w="full">
-                    <MediumCard
+                    <ArticleCard
                         title="Automated Extraction of Insurance Product Characteristics"
                         description="Co-authored. Published in SEI 2025."
-                        date="2025"
+                        date="Nov 2025"
                         readTime="Paper"
                         icon={FaFileAlt}
                     />
-                    <MediumCard
+                    <ArticleCard
                         title="Simplifying Complex Insurance Product Management with AI"
                         description="Co-authored. Published in SEI 2025."
-                        date="2025"
+                        date="Nov 2025"
                         readTime="Paper"
                         icon={FaFileAlt}
                     />
