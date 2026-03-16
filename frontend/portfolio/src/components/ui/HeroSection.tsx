@@ -37,15 +37,15 @@ export const HeroSection = () => {
                         </Heading>
 
                         <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
-                            I am an AI Engineer based in <Text as="span" fontWeight="bold">Porto</Text>, Portugal, with a background in Software Engineering. Since joining <Text as="span" fontWeight="bold">MSG Life Iberia</Text> in 2023, I have transitioned from my internship to delivering enterprise-grade solutions in the insurance domain.
+                            I am an AI Engineer based in <Text as="span" fontWeight="bold">Porto</Text>, Portugal, with a background in Software Engineering. Since joining <Text as="span" fontWeight="bold">MSG Life Iberia</Text> in 2023, I have transitioned from my internship to delivering enterprise-grade solutions in the insurance domain, spanning full stack and AI development.
                         </Text>
 
                         <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
-                            My recent work includes developing the company’s official tool for Document Intelligence based on an Agentic RAG architecture and a specialized module for our core product, <Text as="span" fontWeight="bold">Product Machine</Text>. This module accelerates insurance configuration through automated information extraction, natural language data querying, and NL-driven product modifications.
+                            My recent work includes developing the company’s official tool for Document Intelligence based on an Agentic RAG architecture and a specialized module for our core product, <Text as="span" fontWeight="bold">Product Machine</Text>. This artificial intelligence driven module, Configure:it, accelerates insurance configuration through automated information extraction from product documents, natural language data querying, and NL-driven product modifications.
                         </Text>
 
                         <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
-                            I am currently completing my Master’s in Software Engineering at FEUP (July 2026). My thesis, <Text as="span" fontWeight="bold">Product Validation Accelerator Engine,</Text> leverages Agentic AI and the integration withtesting tools such as Combinatorial Testing, Boundary Value Analysis and Equivalence Class Partitioning to automate and optimize the verification of complex insurance product configurations.
+                            I am currently completing my Master’s in Software Engineering at FEUP (July 2026). My thesis, <Text as="span" fontWeight="bold">Product Validation Accelerator Engine,</Text> leverages Agentic AI and the integration with testing tools such as Combinatorial Testing, Boundary Value Analysis and Equivalence Class Partitioning to automate and optimize the verification of complex insurance product configurations.
                         </Text>
 
                         <HStack gap={4} fontSize="sm" color={subtextColor} wrap="wrap" pt={1}>

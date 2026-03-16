@@ -46,9 +46,9 @@ export default function TimelinePage() {
                                 <RouterLink to="/">Home</RouterLink>
                             </Link>
                             <Text>»</Text>
-                            <Text>My Journey</Text>
+                            <Text>About Me</Text>
                         </HStack>
-                        <Heading size="2xl" color={titleColor}>About Me</Heading>
+                        <Heading size="2xl" color={titleColor}>My Journey</Heading>
                     </VStack>
 
                     <Timeline.Root size="lg" variant="outline">
@@ -364,7 +364,7 @@ export default function TimelinePage() {
                                 <Text fontSize="lg" fontWeight="bold" color={titleColor}>
                                     Master's in Software Engineering - FEUP
                                 </Text>
-                                <Text fontSize="sm" color={titleColor}>CTO in the creation of an e-commerce platform</Text>
+                                <Text fontSize="sm" color={titleColor}>Thesis titled: Product Validation Accelerator Engine</Text>
                                 <Text fontSize="sm" color={dateColor}>Sept 2024 (Ongoing)</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
