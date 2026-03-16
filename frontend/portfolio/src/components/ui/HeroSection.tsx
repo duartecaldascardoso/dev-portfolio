@@ -1,102 +1,98 @@
 
 import {
-    Box,
     Container,
     Stack,
-    VStack,
+    SimpleGrid,
     Heading,
     Text,
+    HStack,
+    Link,
     Image,
     Icon,
+    VStack,
 } from '@chakra-ui/react';
-import { FaGithub, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import { Link as RouterLink } from 'react-router-dom';
 import { useColorModeValue } from './color-mode';
-import { ThreeDButton } from './ThreeDButton';
+import { LuBookOpenText, LuFolderGit2, LuGraduationCap, LuUserRound } from 'react-icons/lu';
+
+const quickLinks = [
+    { label: 'About Me', to: '/about', icon: LuUserRound },
+    { label: 'Publications', to: '/publications', icon: LuBookOpenText },
+    { label: 'Courses & Books', to: '/courses', icon: LuGraduationCap },
+    { label: 'Projects', to: '/projects', icon: LuFolderGit2 },
+];
 
 export const HeroSection = () => {
-    const headingColor = useColorModeValue('gray.900', 'white');
-    const subtextColor = useColorModeValue('gray.600', 'gray.400');
+    const headingColor = useColorModeValue('brand.solid', 'brand.solid');
+    const subtextColor = useColorModeValue('brand.fg', 'brand.fg');
+    const borderColor = useColorModeValue('brand.muted', 'brand.muted');
 
     return (
-        <Box position="relative" overflow="hidden" pb={{ base: 10, md: 12 }} pt={{ base: 20, md: 32 }}>
-            <Container maxW="6xl">
-                <Stack direction={{ base: 'column-reverse', md: 'row' }} align="center" gap={{ base: 12, md: 20 }}>
-                    <Stack flex={1} gap={{ base: 6, md: 8 }} textAlign={{ base: 'center', md: 'left' }}>
-                        <VStack align={{ base: 'center', md: 'start' }} gap={4}>
-                            <Heading
-                                as="h1"
-                                fontWeight="bold"
-                                fontSize={{ base: '4xl', sm: '5xl', md: '7xl' }}
-                                lineHeight="1.1"
-                                color={headingColor}
-                                letterSpacing="tight"
-                            >
-                                Hi, I'm <Box as="span" color={useColorModeValue('brand.600', 'brand.400')}>Duarte</Box>.
-                            </Heading>
-                            <Heading
-                                as="h2"
-                                fontWeight="medium"
-                                fontSize={{ base: 'xl', sm: '2xl', md: '3xl' }}
-                                lineHeight="1.4"
-                                color={subtextColor}
-                            >
-                                AI Engineer, Musician, Chess player and Traveler
-                            </Heading>
-                            <Text fontSize="lg" color={subtextColor} maxW="xl" lineHeight="tall">
-                                I view myself as a creative person, focused on building intelligent, user-centric systems.
-                                I truly enjoy technology and am passionate about building and learning in the field.
-                            </Text>
-                        </VStack>
+        <Container maxW="4xl" py={{ base: 6, md: 10 }}>
+            <VStack align="stretch" gap={6}>
+                <Stack direction={{ base: 'column-reverse', md: 'row' }} gap={6} align="start">
+                    <VStack align="start" gap={3} flex={1}>
+                        <Heading as="h1" fontSize={{ base: '3xl', md: '5xl' }} lineHeight="2" color={headingColor}>
+                            Hello, I am Duarte
+                        </Heading>
 
-                        <Stack direction="row" wrap="wrap" gap={4} pt={4} justify={{ base: 'center', md: 'start' }} align="center">
-                            <ThreeDButton href="https://github.com/duartecaldascardoso">
-                                <Icon as={FaGithub} />
-                            </ThreeDButton>
-                            <ThreeDButton href="mailto:caldasdcardoso@gmail.com">
-                                <Icon as={FaEnvelope} />
-                            </ThreeDButton>
-                            <ThreeDButton href={`${import.meta.env.BASE_URL}config/DuarteCardoso.pdf`} newTab>
-                                <Icon as={FaFileAlt} />
-                            </ThreeDButton>
-                        </Stack>
-                    </Stack>
+                        <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
+                            I am an AI Engineer based in <Text as="span" fontWeight="bold">Porto</Text>, Portugal, with a background in Software Engineering. Since joining <Text as="span" fontWeight="bold">MSG Life Iberia</Text> in 2023, I have transitioned from my internship to delivering enterprise-grade solutions in the insurance domain.
+                        </Text>
 
-                    <Box flex={1} position="relative" display="flex" justifyContent="center" alignItems="center">
-                        <Box
-                            position="relative"
-                            mt={{ base: -8, md: -12 }}
-                            maxW="340px"
-                            w="full"
-                            aspectRatio={1}
-                        >
-                            <Image
-                                src={`${import.meta.env.BASE_URL}config/profile.jpg`}
-                                w="100%"
-                                h="100%"
-                                borderRadius="2xl"
-                                objectFit="cover"
-                                alt="Duarte Cardoso"
-                                shadow="2xl"
-                                zIndex={2}
-                                position="relative"
-                                objectPosition="0px -185px"
-                            />
-                            <Box
-                                position="absolute"
-                                top={-2}
-                                right={-2}
-                                bottom={4}
-                                left={4}
-                                border="2px solid"
-                                borderColor={useColorModeValue('brand.500', 'brand.400')}
-                                borderRadius="2xl"
-                                zIndex={1}
-                                opacity={0.5}
-                            />
-                        </Box>
-                    </Box>
+                        <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
+                            My recent work includes developing the company’s official tool for Document Intelligence based on an Agentic RAG architecture and a specialized module for our core product, <Text as="span" fontWeight="bold">Product Machine</Text>. This module accelerates insurance configuration through automated information extraction, natural language data querying, and NL-driven product modifications.
+                        </Text>
+
+                        <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
+                            I am currently completing my Master’s in Software Engineering at FEUP (July 2026). My thesis, <Text as="span" fontWeight="bold">Product Validation Accelerator Engine,</Text> leverages Agentic AI and the integration withtesting tools such as Combinatorial Testing, Boundary Value Analysis and Equivalence Class Partitioning to automate and optimize the verification of complex insurance product configurations.
+                        </Text>
+
+                        <HStack gap={4} fontSize="sm" color={subtextColor} wrap="wrap" pt={1}>
+                            <Link href="https://github.com/duartecaldascardoso" target="_blank" rel="noopener noreferrer">GitHub</Link>
+                            <Link href="mailto:caldasdcardoso@gmail.com">Email</Link>
+                            <Link href="https://www.linkedin.com/in/duartecardoso/" target="_blank" rel="noopener noreferrer">LinkedIn</Link>
+                            <Link href={`${import.meta.env.BASE_URL}config/DuarteCardoso.pdf`} target="_blank" rel="noopener noreferrer">CV</Link>
+                        </HStack>
+                    </VStack>
+
+                    <Image
+                        src={`${import.meta.env.BASE_URL}config/profile.jpg`}
+                        alt="Duarte Cardoso"
+                        borderRadius="full"
+                        objectFit="cover"
+                        objectPosition="center 65%"
+                        h={{ base: '280px', md: '320px' }}
+                        w={{ base: '280px', md: '320px' }}
+                        border="1px solid"
+                        borderColor={borderColor}
+                        mx={{ base: 'auto', md: 0 }}
+                    />
                 </Stack>
-            </Container>
-        </Box>
+
+                <SimpleGrid columns={{ base: 1, sm: 2 }} gap={3}>
+                    {quickLinks.map((item) => (
+                        <Link
+                            key={item.label}
+                            asChild
+                            border="1px solid"
+                            borderColor={borderColor}
+                            borderRadius="md"
+                            px={4}
+                            py={3}
+                            flex={1}
+                            _hover={{ textDecoration: 'none', borderColor: headingColor }}
+                        >
+                            <RouterLink to={item.to}>
+                                <HStack justify="center" gap={2} color={headingColor}>
+                                    <Icon as={item.icon} />
+                                    <Text fontWeight="semibold" fontSize="sm">{item.label}</Text>
+                                </HStack>
+                            </RouterLink>
+                        </Link>
+                    ))}
+                </SimpleGrid>
+            </VStack>
+        </Container>
     );
 };

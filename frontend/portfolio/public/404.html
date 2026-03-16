@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        // Save the current URL to session storage
-        sessionStorage.redirect = window.location.href;
-        // Redirect to the base path
-        window.location.replace("/dev-portfolio/");
+        var fallbackPath = window.location.pathname + window.location.search + window.location.hash;
+        sessionStorage.setItem('redirect', fallbackPath);
+        window.location.replace('/dev-portfolio');
     </script>
 </head>
 

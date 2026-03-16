@@ -10,22 +10,22 @@ import { useColorModeValue } from './color-mode';
 import { ArticleCard } from './ArticleCard';
 
 export const ArticlesSection = () => {
-    const headingColor = useColorModeValue('gray.900', 'white');
-    const subtextColor = useColorModeValue('gray.600', 'gray.400');
+    const headingColor = useColorModeValue('brand.solid', 'brand.light');
+    const subtextColor = useColorModeValue('brand.fg', 'brand.muted');
 
     return (
-        <Container maxW="6xl" py={6}>
-            <VStack gap={16}>
-                <VStack gap={4} textAlign="center">
+        <Container maxW="4xl" py={4}>
+            <VStack gap={10} align="stretch">
+                <VStack gap={3} align="start" textAlign="left">
                     <Heading size="2xl" color={headingColor} letterSpacing="tight">
                         Articles
                     </Heading>
-                    <Text fontSize="xl" color={subtextColor} maxW="2xl">
+                    <Text fontSize="md" color={subtextColor} maxW="2xl">
                         Some of my thoughts and experiments written on Medium.
                     </Text>
                 </VStack>
 
-                <SimpleGrid columns={{ base: 1, md: 3 }} gap={8} w="full">
+                <SimpleGrid columns={{ base: 1, md: 2 }} gap={4} w="full">
                     <ArticleCard
                         title="The Underrated Role of Small Language Models in Agentic AI"
                         description="I recently stumbled upon a thought-evoking research paper from NVIDIA that challenged how I view AI agents. The premise was simple: we are probably using models that are way too big for what most AI agents actually need to do."

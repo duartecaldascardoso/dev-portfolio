@@ -12,22 +12,22 @@ import { FaFileAlt } from 'react-icons/fa';
 import { ArticleCard } from './ArticleCard';
 
 export const ScientificPapersSection = () => {
-    const headingColor = useColorModeValue('gray.900', 'white');
-    const subtextColor = useColorModeValue('gray.600', 'gray.400');
+    const headingColor = useColorModeValue('brand.solid', 'brand.light');
+    const subtextColor = useColorModeValue('brand.fg', 'brand.muted');
 
     return (
-        <Container maxW="6xl" py={12}>
-            <VStack gap={16}>
-                <VStack gap={4} textAlign="center">
+        <Container maxW="4xl" py={4}>
+            <VStack gap={10} align="stretch">
+                <VStack gap={3} align="start" textAlign="left">
                     <Heading size="2xl" color={headingColor} letterSpacing="tight">
                         Scientific Papers
                     </Heading>
-                    <Text fontSize="xl" color={subtextColor} maxW="2xl">
+                    <Text fontSize="md" color={subtextColor} maxW="2xl">
                         My contributions to scientific research.
                     </Text>
                 </VStack>
 
-                <SimpleGrid columns={{ base: 1, md: 2 }} gap={8} w="full">
+                <SimpleGrid columns={{ base: 1, md: 2 }} gap={4} w="full">
                     <ArticleCard
                         title="Automated Extraction of Insurance Product Characteristics"
                         description="Co-authored. Published in SEI 2025."

@@ -1,5 +1,3 @@
-'use client'
-
 import { Timeline } from '@chakra-ui/react'
 import {
     Box,
@@ -7,48 +5,57 @@ import {
     VStack,
     Container,
     Image,
+    HStack,
+    Link,
+    Heading,
 } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
 import { useColorModeValue } from './color-mode'
+import { NavLink as RouterLink } from 'react-router-dom'
 
 const pulse = keyframes`
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0.7);
+    box-shadow: 0 0 0 0 rgba(120, 120, 120, 0.5);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(66, 153, 225, 0);
+    box-shadow: 0 0 0 10px rgba(120, 120, 120, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+    box-shadow: 0 0 0 0 rgba(120, 120, 120, 0);
   }
 `
 
 export default function TimelinePage() {
-    const standardColor = useColorModeValue('gray.900', 'white')
-    const titleColor = useColorModeValue('gray.900', 'white')
+    const standardColor = useColorModeValue('gray.800', 'gray.800')
+    const titleColor = useColorModeValue('gray.900', 'gray.900')
     const dateColor = useColorModeValue('gray.500', 'gray.500')
+    const borderColor = useColorModeValue('gray.200', 'gray.200')
 
-    const activeColor = 'brand.500';
+    const activeColor = 'gray.700'
 
     return (
-        <Box minH="100vh" overflow="visible" zIndex="1" position="relative">
-            <Container maxW="full" px={{ base: 4, md: 8 }} position="relative">
-                <VStack
-                    gap={12}
-                    align="stretch"
-                    textAlign={{ base: 'left', md: 'center' }}
-                    width="100%"
-                    maxW="4xl"
-                    mx="auto"
-                >
+        <Box overflow="visible" zIndex="1" position="relative">
+            <Container maxW="4xl" px={{ base: 4, md: 0 }} position="relative">
+                <VStack align="stretch" gap={8} pb={4}>
+                    <VStack align="start" gap={2}>
+                        <HStack gap={2} fontSize="sm" color="gray.600">
+                            <Link asChild _hover={{ textDecoration: 'underline' }}>
+                                <RouterLink to="/">Home</RouterLink>
+                            </Link>
+                            <Text>»</Text>
+                            <Text>My Journey</Text>
+                        </HStack>
+                        <Heading size="2xl" color={titleColor}>About Me</Heading>
+                    </VStack>
+
                     <Timeline.Root size="lg" variant="outline">
                         <Timeline.Item position="relative">
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
@@ -67,7 +74,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 left="calc(50% + 200px)"
                                 top="-20px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="160px"
                             >
                                 <Box position="relative">
@@ -95,7 +102,7 @@ export default function TimelinePage() {
                                 <Text fontSize="sm" color={dateColor}>2008 - 2019</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
@@ -104,7 +111,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 right="calc(50% + 275px)"
                                 top="-20px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="160px"
                             >
                                 <Box position="relative">
@@ -123,7 +130,7 @@ export default function TimelinePage() {
                         <Timeline.Item position="relative">
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
@@ -143,7 +150,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 left="calc(50% + 450px)"
                                 top="-20px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="160px"
                             >
                                 <Box position="relative">
@@ -174,7 +181,7 @@ export default function TimelinePage() {
                                 <Text fontSize="sm" color={dateColor}>September 2020 - September 2023</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
@@ -183,7 +190,7 @@ export default function TimelinePage() {
                         <Timeline.Item position="relative">
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
@@ -202,7 +209,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 right="calc(50% + 400px)"
                                 top="-60px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="160px"
                             >
                                 <Box position="relative">
@@ -232,7 +239,7 @@ export default function TimelinePage() {
                                 <Text fontSize="sm" color={dateColor}>February 2023 - June 2023</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
@@ -241,7 +248,7 @@ export default function TimelinePage() {
                         <Timeline.Item>
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
@@ -272,7 +279,7 @@ export default function TimelinePage() {
                                 <Text fontSize="sm" color={dateColor}>October 2023 (Ongoing)</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator
                                     bg={activeColor}
                                     animation={`${pulse} 2s infinite`}
@@ -284,7 +291,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 right="calc(50% + 450px)"
                                 top="-20px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="160px"
                             >
                                 <Box position="relative">
@@ -303,7 +310,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 left="calc(50% + 420px)"
                                 top="-40px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="200px"
                             >
                                 <Box position="relative">
@@ -325,11 +332,10 @@ export default function TimelinePage() {
                             </Box>
                         </Timeline.Item>
 
-                        {/* AI Engineer */}
                         <Timeline.Item>
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator
                                     bg={activeColor}
                                     animation={`${pulse} 2s infinite`}
@@ -362,7 +368,7 @@ export default function TimelinePage() {
                                 <Text fontSize="sm" color={dateColor}>Sept 2024 (Ongoing)</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
-                                <Timeline.Separator />
+                                <Timeline.Separator borderColor={borderColor} />
                                 <Timeline.Indicator
                                     bg={activeColor}
                                     animation={`${pulse} 2s infinite`}
@@ -374,7 +380,7 @@ export default function TimelinePage() {
                                 position="absolute"
                                 left="calc(50% + 200px)"
                                 bottom="-75px"
-                                display={{ base: 'none', lg: 'block' }}
+                                display={{ base: 'none', md: 'block' }}
                                 width="160px"
                             >
                                 <Box position="relative">
