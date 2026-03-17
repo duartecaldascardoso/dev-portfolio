@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useColorModeValue } from './color-mode';
-import { LuBookOpenText, LuFolderGit2, LuGraduationCap, LuSparkles, LuUserRound } from 'react-icons/lu';
+import { LuBookOpenText, LuFolderGit2, LuGraduationCap, LuTrophy, LuUserRound } from 'react-icons/lu';
 
 const quickLinks = [
     { label: 'About Me', to: '/about', icon: LuUserRound },
@@ -25,7 +25,7 @@ const quickLinks = [
 const highlights = [
     {
         title: 'Machine Learning Model Development',
-        meta: 'Course · Databricks',
+        meta: 'Course · Databricks on ML model development lifecycle practices · MLOps',
         image: 'https://cdn.simpleicons.org/databricks',
         imageAlt: 'Databricks logo',
         imageFit: 'contain' as const,
@@ -34,7 +34,7 @@ const highlights = [
     },
     {
         title: 'Claude with Amazon Bedrock',
-        meta: 'Course · Anthropic',
+        meta: 'Course · Anthropic & AWS on Agentic AI topics',
         image: 'https://cdn.simpleicons.org/anthropic',
         imageAlt: 'Anthropic logo',
         imageFit: 'contain' as const,
@@ -43,15 +43,15 @@ const highlights = [
     },
     {
         title: 'AI Engineering',
-        meta: 'Book · Chip Huyen',
+        meta: 'Book · Chip Huyen on production-oriented AI application design and operation',
         image: 'https://covers.openlibrary.org/b/isbn/9781098166304-L.jpg',
         imageAlt: 'AI Engineering book cover',
         imageFit: 'cover' as const,
         to: '/courses' as const,
     },
     {
-        title: 'Automated Extraction of Insurance Product Characteristics',
-        meta: 'Publication · SEI 2025',
+        title: 'Simplifying Complex Insurance Product Management with AI',
+        meta: 'Publication · SEI 2025 · Distinguished with Best Paper Award',
         image: `${import.meta.env.BASE_URL}config/projects/insuranceThesis.png`,
         imageAlt: 'Insurance publication thumbnail',
         imageFit: 'cover' as const,
@@ -60,7 +60,7 @@ const highlights = [
     },
     {
         title: 'Eunomia',
-        meta: 'Project',
+        meta: 'Project · Modus Labs · Stealth Development',
         image: `${import.meta.env.BASE_URL}config/projects/Eunomia.png`,
         imageAlt: 'Eunomia project image',
         imageFit: 'cover' as const,
@@ -152,20 +152,37 @@ export const HeroSection = () => {
 
                     <VStack align="stretch" gap={0} border="1px solid" borderColor={borderColor} borderRadius="md" overflow="hidden">
                         {highlights.map((item) => {
+                            const isWinningPaper = item.title === 'Simplifying Complex Insurance Product Management with AI';
+
                             const content = (
                                 <HStack align="start" gap={3}>
-                                    <Image
-                                        src={item.image}
-                                        alt={item.imageAlt}
-                                        w="44px"
-                                        h="44px"
-                                        objectFit={item.imageFit}
-                                        borderRadius="sm"
-                                        border="1px solid"
-                                        borderColor={borderColor}
-                                        p={item.imageFit === 'contain' ? 1 : 0}
-                                        flexShrink={0}
-                                    />
+                                    {isWinningPaper ? (
+                                        <HStack
+                                            w="44px"
+                                            h="44px"
+                                            borderRadius="sm"
+                                            border="1px solid"
+                                            borderColor={borderColor}
+                                            justify="center"
+                                            align="center"
+                                            flexShrink={0}
+                                        >
+                                            <Icon as={LuTrophy} boxSize={5} color={headingColor} />
+                                        </HStack>
+                                    ) : (
+                                        <Image
+                                            src={item.image}
+                                            alt={item.imageAlt}
+                                            w="44px"
+                                            h="44px"
+                                            objectFit={item.imageFit}
+                                            borderRadius="sm"
+                                            border="1px solid"
+                                            borderColor={borderColor}
+                                            p={item.imageFit === 'contain' ? 1 : 0}
+                                            flexShrink={0}
+                                        />
+                                    )}
                                     <VStack align="start" gap={0}>
                                         <Text fontWeight="semibold" color={headingColor}>
                                             {item.title}
@@ -177,7 +194,7 @@ export const HeroSection = () => {
                                 </HStack>
                             );
 
-                            if (item.external) {
+                            if ('href' in item) {
                                 return (
                                     <Link
                                         key={item.title}
@@ -207,7 +224,7 @@ export const HeroSection = () => {
                                     _last={{ borderBottom: 'none' }}
                                     _hover={{ textDecoration: 'none', bg: 'bg.subtle' }}
                                 >
-                                    <RouterLink to={item.to!}>
+                                    <RouterLink to={item.to}>
                                         {content}
                                     </RouterLink>
                                 </Link>

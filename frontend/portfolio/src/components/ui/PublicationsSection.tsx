@@ -45,7 +45,8 @@ const publications: PublicationItem[] = [
         title: 'Automated Extraction of Insurance Product Characteristics',
         source: 'SEI 2025',
         date: 'Nov 2025',
-        description: 'Co-authored scientific paper published in SEI 2025.',
+        description:
+            'Co-authored scientific paper that presents an AI agent workflow supported by NLP, LLMs, and validation schemes to extract insurance product characteristics from regulatory documents with structured, consistent, and quality-assured outputs.',
         href: 'https://sei.dei.isep.ipp.pt/wp-content/uploads/2026/01/SEI25-LdA.pdf',
         icon: FaFileAlt,
     },
@@ -53,7 +54,8 @@ const publications: PublicationItem[] = [
         title: 'Simplifying Complex Insurance Product Management with AI',
         source: 'SEI 2025',
         date: 'Nov 2025',
-        description: 'Co-authored scientific paper published in SEI 2025.',
+        description:
+            'Co-authored scientific paper awarded Best Paper at SEI 2025, introducing Product Machine Explorer, an LLM- and agent-powered tool integrated with Product Machine to explore complex insurance product models through natural language, improving usability and significantly reducing time spent on repetitive analysis tasks.',
         href: 'https://sei.dei.isep.ipp.pt/wp-content/uploads/2026/01/SEI25-LdA.pdf',
         icon: FaFileAlt,
     },

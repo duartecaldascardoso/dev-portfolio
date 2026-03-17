@@ -25,7 +25,7 @@ const projects = [
         title: 'Eunomia',
         href: 'https://github.com/duartecaldascardoso/Eunomia',
         description: 'A project under Modus Labs, currently in active stealth development with a planned 2026 release. Eunomia is a productivity suite combining automatic metrics collection, machine learning data analysis, agentic calendar planning, and a social network for shared or competitive goals with friends.',
-        stack: ['Machine Learning', 'Agentic Planning', 'Productivity Suite', 'Social Features'],
+        stack: ['PyTorch', 'Scikit-learn', 'Django', 'React', 'ML', 'LangChain', 'LangGraph', 'AG-UI'],
     },
 ];
 
