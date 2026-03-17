@@ -1,11 +1,23 @@
-import { Box, Container, Heading, HStack, Link, Text, VStack } from '@chakra-ui/react';
+import { Box, Container, Heading, HStack, Image, Link, Text, VStack } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaBook } from 'react-icons/fa';
 
 const books = [
-    { title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann' },
-    { title: 'AI Engineering', author: 'Chip Huyen' },
-    { title: 'Architecture Patterns with Python', author: 'Harry J.W. Percival and Bob Gregory' },
+    {
+        title: 'Designing Data-Intensive Applications',
+        author: 'Martin Kleppmann',
+        cover: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
+    },
+    {
+        title: 'AI Engineering',
+        author: 'Chip Huyen',
+        cover: 'https://covers.openlibrary.org/b/isbn/9781098166304-L.jpg',
+    },
+    {
+        title: 'Architecture Patterns with Python',
+        author: 'Harry J.W. Percival and Bob Gregory',
+        cover: 'https://covers.openlibrary.org/b/isbn/9781492052203-L.jpg',
+    },
 ];
 
 export default function BooksPage() {
@@ -25,11 +37,25 @@ export default function BooksPage() {
 
                 {books.map((book) => (
                     <Box key={book.title} pb={4} borderBottom="1px solid" borderColor="gray.200">
-                        <HStack gap={2} mb={1}>
-                            <FaBook />
-                            <Text fontWeight="semibold">{book.title}</Text>
+                        <HStack align="start" gap={4}>
+                            <Image
+                                src={book.cover}
+                                alt={`${book.title} cover`}
+                                w="70px"
+                                h="100px"
+                                objectFit="cover"
+                                borderRadius="md"
+                                border="1px solid"
+                                borderColor="gray.200"
+                            />
+                            <VStack align="start" gap={1}>
+                                <HStack gap={2}>
+                                    <FaBook />
+                                    <Text fontWeight="semibold">{book.title}</Text>
+                                </HStack>
+                                <Text fontSize="sm" color="gray.600">{book.author}</Text>
+                            </VStack>
                         </HStack>
-                        <Text fontSize="sm" color="gray.600">{book.author}</Text>
                     </Box>
                 ))}
             </VStack>

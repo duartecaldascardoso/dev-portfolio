@@ -7,21 +7,25 @@ const projects = [
         title: 'modus-laboratories',
         href: 'https://github.com/modus-laboratories',
         description: 'Modus Labs is a living startup I am building with college colleagues. It works as a living lab for product development, AI/ML experimentation, and applied projects.',
+        stack: ['Product Development', 'AI/ML', 'Rapid Prototyping'],
     },
     {
         title: 'me-agent',
         href: 'https://github.com/duartecaldascardoso/me-agent',
         description: 'A RAG pipeline with user-focused documentation that handles full ingestion, retrieval, and agentic interaction with the user, serving as a practical baseline for building custom RAG systems.',
+        stack: ['Python', 'RAG', 'LLM Agents', 'Vector Search'],
     },
     {
         title: 'article-explainer',
         href: 'https://github.com/duartecaldascardoso/article-explainer',
         description: 'Featured twice by LangChain on LinkedIn. This project uses a Swarm architecture with multiple agents to explain scientific articles.',
+        stack: ['LangChain', 'Multi-Agent Systems', 'Python', 'NLP'],
     },
     {
         title: 'Eunomia',
         href: 'https://github.com/duartecaldascardoso/Eunomia',
         description: 'A project under Modus Labs, currently in active stealth development with a planned 2026 release. Eunomia is a productivity suite combining automatic metrics collection, machine learning data analysis, agentic calendar planning, and a social network for shared or competitive goals with friends.',
+        stack: ['Machine Learning', 'Agentic Planning', 'Productivity Suite', 'Social Features'],
     },
 ];
 
@@ -52,6 +56,21 @@ export default function ProjectsPage() {
                             </HStack>
                         </Link>
                         <Text mt={2} color="gray.700" lineHeight="1.7">{project.description}</Text>
+                        <HStack gap={2} mt={3} flexWrap="wrap">
+                            {project.stack.map((technology) => (
+                                <Box
+                                    key={`${project.title}-${technology}`}
+                                    px={2}
+                                    py={1}
+                                    borderRadius="md"
+                                    bg="gray.100"
+                                    border="1px solid"
+                                    borderColor="gray.200"
+                                >
+                                    <Text fontSize="xs" color="gray.700">{technology}</Text>
+                                </Box>
+                            ))}
+                        </HStack>
                     </Box>
                 ))}
             </VStack>

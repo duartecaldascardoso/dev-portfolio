@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useColorModeValue } from './color-mode';
-import { LuBookOpenText, LuFolderGit2, LuGraduationCap, LuUserRound } from 'react-icons/lu';
+import { LuBookOpenText, LuFolderGit2, LuGraduationCap, LuSparkles, LuUserRound } from 'react-icons/lu';
 
 const quickLinks = [
     { label: 'About Me', to: '/about', icon: LuUserRound },
@@ -21,6 +21,53 @@ const quickLinks = [
     { label: 'Courses & Books', to: '/courses', icon: LuGraduationCap },
     { label: 'Projects', to: '/projects', icon: LuFolderGit2 },
 ];
+
+const highlights = [
+    {
+        title: 'Machine Learning Model Development',
+        meta: 'Course · Databricks',
+        image: 'https://cdn.simpleicons.org/databricks',
+        imageAlt: 'Databricks logo',
+        imageFit: 'contain' as const,
+        href: 'https://www.linkedin.com/in/duartecardoso/details/certifications/',
+        external: true,
+    },
+    {
+        title: 'Claude with Amazon Bedrock',
+        meta: 'Course · Anthropic',
+        image: 'https://cdn.simpleicons.org/anthropic',
+        imageAlt: 'Anthropic logo',
+        imageFit: 'contain' as const,
+        href: 'https://www.linkedin.com/in/duartecardoso/details/certifications/',
+        external: true,
+    },
+    {
+        title: 'AI Engineering',
+        meta: 'Book · Chip Huyen',
+        image: 'https://covers.openlibrary.org/b/isbn/9781098166304-L.jpg',
+        imageAlt: 'AI Engineering book cover',
+        imageFit: 'cover' as const,
+        to: '/courses' as const,
+    },
+    {
+        title: 'Automated Extraction of Insurance Product Characteristics',
+        meta: 'Publication · SEI 2025',
+        image: `${import.meta.env.BASE_URL}config/projects/insuranceThesis.png`,
+        imageAlt: 'Insurance publication thumbnail',
+        imageFit: 'cover' as const,
+        href: 'https://sei.dei.isep.ipp.pt/wp-content/uploads/2026/01/SEI25-LdA.pdf',
+        external: true,
+    },
+    {
+        title: 'Eunomia',
+        meta: 'Project',
+        image: `${import.meta.env.BASE_URL}config/projects/Eunomia.png`,
+        imageAlt: 'Eunomia project image',
+        imageFit: 'cover' as const,
+        href: 'https://github.com/duartecaldascardoso/Eunomia',
+        external: true,
+    },
+] as const;
 
 export const HeroSection = () => {
     const headingColor = useColorModeValue('brand.solid', 'brand.solid');
@@ -67,6 +114,9 @@ export const HeroSection = () => {
                         border="1px solid"
                         borderColor={borderColor}
                         mx={{ base: 'auto', md: 0 }}
+                        alignSelf={{ base: 'center', md: 'flex-start' }}
+                        mt={{ base: 0, md: 0 }}
+                        transform={{ base: 'none', md: 'translate(70px, 150px)' }}
                     />
                 </Stack>
 
@@ -92,6 +142,79 @@ export const HeroSection = () => {
                         </Link>
                     ))}
                 </SimpleGrid>
+
+                <VStack align="stretch" gap={4} pt={2}>
+                    <HStack gap={2} color={headingColor}>
+                        <Heading as="h2" size="lg">
+                            Highlights
+                        </Heading>
+                    </HStack>
+
+                    <VStack align="stretch" gap={0} border="1px solid" borderColor={borderColor} borderRadius="md" overflow="hidden">
+                        {highlights.map((item) => {
+                            const content = (
+                                <HStack align="start" gap={3}>
+                                    <Image
+                                        src={item.image}
+                                        alt={item.imageAlt}
+                                        w="44px"
+                                        h="44px"
+                                        objectFit={item.imageFit}
+                                        borderRadius="sm"
+                                        border="1px solid"
+                                        borderColor={borderColor}
+                                        p={item.imageFit === 'contain' ? 1 : 0}
+                                        flexShrink={0}
+                                    />
+                                    <VStack align="start" gap={0}>
+                                        <Text fontWeight="semibold" color={headingColor}>
+                                            {item.title}
+                                        </Text>
+                                        <Text fontSize="sm" color={subtextColor}>
+                                            {item.meta}
+                                        </Text>
+                                    </VStack>
+                                </HStack>
+                            );
+
+                            if (item.external) {
+                                return (
+                                    <Link
+                                        key={item.title}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        px={4}
+                                        py={3}
+                                        borderBottom="1px solid"
+                                        borderColor={borderColor}
+                                        _last={{ borderBottom: 'none' }}
+                                        _hover={{ textDecoration: 'none', bg: 'bg.subtle' }}
+                                    >
+                                        {content}
+                                    </Link>
+                                );
+                            }
+
+                            return (
+                                <Link
+                                    key={item.title}
+                                    asChild
+                                    px={4}
+                                    py={3}
+                                    borderBottom="1px solid"
+                                    borderColor={borderColor}
+                                    _last={{ borderBottom: 'none' }}
+                                    _hover={{ textDecoration: 'none', bg: 'bg.subtle' }}
+                                >
+                                    <RouterLink to={item.to!}>
+                                        {content}
+                                    </RouterLink>
+                                </Link>
+                            );
+                        })}
+                    </VStack>
+                </VStack>
             </VStack>
         </Container>
     );
