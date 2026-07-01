@@ -84,15 +84,15 @@ export const HeroSection = () => {
                         </Heading>
 
                         <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
-                            I am an AI Engineer based in <Text as="span" fontWeight="bold">Porto</Text>, Portugal, with a background in Software Engineering. Since joining <Text as="span" fontWeight="bold">MSG Life Iberia</Text> in 2023, I have transitioned from my internship to delivering enterprise-grade solutions in the insurance domain, spanning full stack and AI development.
+                            I am an AI Engineer based in <Text as="span" fontWeight="bold">Porto</Text>, Portugal, with a background in Software Engineering. I recently joined <Text as="span" fontWeight="bold">DareData</Text> as an AI Engineer, building on a career I started at <Text as="span" fontWeight="bold">MSG Life Iberia</Text> in 2023, where I transitioned from an internship to delivering enterprise-grade solutions in the insurance domain, spanning full stack and AI development.
                         </Text>
 
                         <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
-                            My recent work includes developing the company’s official tool for Document Intelligence based on an Agentic RAG architecture and a specialized module for our core product, <Text as="span" fontWeight="bold">Product Machine</Text>. This artificial intelligence driven module, Configure:it, accelerates insurance configuration through automated information extraction from product documents, natural language data querying, and NL-driven product modifications.
+                            At MSG Life Iberia, my work included developing the company’s official tool for Document Intelligence based on an Agentic RAG architecture and a specialized module for its core product, <Text as="span" fontWeight="bold">Product Machine</Text>. This artificial intelligence driven module, Configure:it, accelerates insurance configuration through automated information extraction from product documents, natural language data querying, and NL-driven product modifications.
                         </Text>
 
                         <Text color={subtextColor} fontSize="lg" lineHeight="1.7">
-                            I am currently completing my Master’s in Software Engineering at FEUP (July 2026). My thesis, <Text as="span" fontWeight="bold">Product Validation Accelerator Engine,</Text> leverages Agentic AI and the integration with testing tools such as Combinatorial Testing, Boundary Value Analysis and Equivalence Class Partitioning to automate and optimize the verification of complex insurance product configurations.
+                            I am currently completing my Master’s in Software Engineering at FEUP (expected July 2026). My thesis, <Text as="span" fontWeight="bold">Product Validation Accelerator Engine,</Text> is complete, and leverages Agentic AI and the integration with testing tools such as Combinatorial Testing, Boundary Value Analysis and Equivalence Class Partitioning to automate and optimize the verification of complex insurance product configurations.
                         </Text>
 
                         <HStack gap={4} fontSize="sm" color={subtextColor} wrap="wrap" pt={1}>

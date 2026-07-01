@@ -336,10 +336,7 @@ export default function TimelinePage() {
                             <Timeline.Content flex="1" />
                             <Timeline.Connector>
                                 <Timeline.Separator borderColor={borderColor} />
-                                <Timeline.Indicator
-                                    bg={activeColor}
-                                    animation={`${pulse} 2s infinite`}
-                                />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content
                                 flex="1"
@@ -351,7 +348,7 @@ export default function TimelinePage() {
                                 </Text>
                                 <Text fontSize="sm" color={titleColor}>Built a fully automated RAG pipeline for an AI assistant</Text>
                                 <Text fontSize="sm" color={titleColor}>Building Agentic AI solutions for the company</Text>
-                                <Text fontSize="sm" color={dateColor}>August 2024 (Ongoing)</Text>
+                                <Text fontSize="sm" color={dateColor}>August 2024 - July 2026</Text>
                             </Timeline.Content>
                         </Timeline.Item>
 
@@ -365,14 +362,11 @@ export default function TimelinePage() {
                                     Master's in Software Engineering - FEUP
                                 </Text>
                                 <Text fontSize="sm" color={titleColor}>Thesis titled: Product Validation Accelerator Engine</Text>
-                                <Text fontSize="sm" color={dateColor}>Sept 2024 (Ongoing)</Text>
+                                <Text fontSize="sm" color={dateColor}>Sept 2024 - Expected July 2026</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
                                 <Timeline.Separator borderColor={borderColor} />
-                                <Timeline.Indicator
-                                    bg={activeColor}
-                                    animation={`${pulse} 2s infinite`}
-                                />
+                                <Timeline.Indicator bg={standardColor} />
                             </Timeline.Connector>
                             <Timeline.Content flex="1" />
 
@@ -394,6 +388,28 @@ export default function TimelinePage() {
                                     />
                                 </Box>
                             </Box>
+                        </Timeline.Item>
+
+                        <Timeline.Item>
+                            <Timeline.Content flex="1" />
+                            <Timeline.Connector>
+                                <Timeline.Separator borderColor={borderColor} />
+                                <Timeline.Indicator
+                                    bg={activeColor}
+                                    animation={`${pulse} 2s infinite`}
+                                />
+                            </Timeline.Connector>
+                            <Timeline.Content
+                                flex="1"
+                                alignItems={{ base: 'flex-start', md: 'flex-start' }}
+                                textAlign={{ base: 'left', md: 'inherit' }}
+                            >
+                                <Text fontSize="lg" fontWeight="bold" color={titleColor}>
+                                    AI Engineer at DareData
+                                </Text>
+                                <Text fontSize="sm" color={titleColor}>Continuing to build applied AI solutions</Text>
+                                <Text fontSize="sm" color={dateColor}>July 2026 (Ongoing)</Text>
+                            </Timeline.Content>
                         </Timeline.Item>
                     </Timeline.Root>
                 </VStack>
